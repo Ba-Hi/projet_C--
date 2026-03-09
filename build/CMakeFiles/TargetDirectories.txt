@@ -1,0 +1,3 @@
+/home/hiba/projet_C++/build/CMakeFiles/projet.dir
+/home/hiba/projet_C++/build/CMakeFiles/edit_cache.dir
+/home/hiba/projet_C++/build/CMakeFiles/rebuild_cache.dir
