@@ -3,9 +3,7 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/include/",
-                "/home/hiba/projet_C++/include/",
-                "/home/hiba/projet_C++/src/"
+                "${workspaceFolder}/include/"
             ],
             "defines": [],
             "cStandard": "c17",

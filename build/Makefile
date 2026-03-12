@@ -117,24 +117,63 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named projet
+# Target rules for targets named programme
 
 # Build rule for target.
-projet: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projet
-.PHONY : projet
+programme: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 programme
+.PHONY : programme
 
 # fast build rule for target.
-projet/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet.dir/build.make CMakeFiles/projet.dir/build
-.PHONY : projet/fast
+programme/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programme.dir/build.make CMakeFiles/programme.dir/build
+.PHONY : programme/fast
+
+#=============================================================================
+# Target rules for targets named particules
+
+# Build rule for target.
+particules: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 particules
+.PHONY : particules
+
+# fast build rule for target.
+particules/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/particules.dir/build.make src/CMakeFiles/particules.dir/build
+.PHONY : particules/fast
+
+#=============================================================================
+# Target rules for targets named test_vector
+
+# Build rule for target.
+test_vector: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_vector
+.PHONY : test_vector
+
+# fast build rule for target.
+test_vector/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_vector.dir/build.make test/CMakeFiles/test_vector.dir/build
+.PHONY : test_vector/fast
+
+#=============================================================================
+# Target rules for targets named test_univers
+
+# Build rule for target.
+test_univers: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_univers
+.PHONY : test_univers
+
+# fast build rule for target.
+test_univers/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_univers.dir/build.make test/CMakeFiles/test_univers.dir/build
+.PHONY : test_univers/fast
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet.dir/build.make CMakeFiles/projet.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programme.dir/build.make CMakeFiles/programme.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -142,7 +181,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet.dir/build.make CMakeFiles/projet.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programme.dir/build.make CMakeFiles/programme.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -150,80 +189,8 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet.dir/build.make CMakeFiles/projet.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programme.dir/build.make CMakeFiles/programme.dir/main.cpp.s
 .PHONY : main.cpp.s
-
-src/Particule.o: src/Particule.cpp.o
-.PHONY : src/Particule.o
-
-# target to build an object file
-src/Particule.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet.dir/build.make CMakeFiles/projet.dir/src/Particule.cpp.o
-.PHONY : src/Particule.cpp.o
-
-src/Particule.i: src/Particule.cpp.i
-.PHONY : src/Particule.i
-
-# target to preprocess a source file
-src/Particule.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet.dir/build.make CMakeFiles/projet.dir/src/Particule.cpp.i
-.PHONY : src/Particule.cpp.i
-
-src/Particule.s: src/Particule.cpp.s
-.PHONY : src/Particule.s
-
-# target to generate assembly for a file
-src/Particule.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet.dir/build.make CMakeFiles/projet.dir/src/Particule.cpp.s
-.PHONY : src/Particule.cpp.s
-
-src/Univers.o: src/Univers.cpp.o
-.PHONY : src/Univers.o
-
-# target to build an object file
-src/Univers.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet.dir/build.make CMakeFiles/projet.dir/src/Univers.cpp.o
-.PHONY : src/Univers.cpp.o
-
-src/Univers.i: src/Univers.cpp.i
-.PHONY : src/Univers.i
-
-# target to preprocess a source file
-src/Univers.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet.dir/build.make CMakeFiles/projet.dir/src/Univers.cpp.i
-.PHONY : src/Univers.cpp.i
-
-src/Univers.s: src/Univers.cpp.s
-.PHONY : src/Univers.s
-
-# target to generate assembly for a file
-src/Univers.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet.dir/build.make CMakeFiles/projet.dir/src/Univers.cpp.s
-.PHONY : src/Univers.cpp.s
-
-src/Vector.o: src/Vector.cpp.o
-.PHONY : src/Vector.o
-
-# target to build an object file
-src/Vector.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet.dir/build.make CMakeFiles/projet.dir/src/Vector.cpp.o
-.PHONY : src/Vector.cpp.o
-
-src/Vector.i: src/Vector.cpp.i
-.PHONY : src/Vector.i
-
-# target to preprocess a source file
-src/Vector.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet.dir/build.make CMakeFiles/projet.dir/src/Vector.cpp.i
-.PHONY : src/Vector.cpp.i
-
-src/Vector.s: src/Vector.cpp.s
-.PHONY : src/Vector.s
-
-# target to generate assembly for a file
-src/Vector.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projet.dir/build.make CMakeFiles/projet.dir/src/Vector.cpp.s
-.PHONY : src/Vector.cpp.s
 
 # Help Target
 help:
@@ -233,19 +200,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... projet"
+	@echo "... particules"
+	@echo "... programme"
+	@echo "... test_univers"
+	@echo "... test_vector"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... src/Particule.o"
-	@echo "... src/Particule.i"
-	@echo "... src/Particule.s"
-	@echo "... src/Univers.o"
-	@echo "... src/Univers.i"
-	@echo "... src/Univers.s"
-	@echo "... src/Vector.o"
-	@echo "... src/Vector.i"
-	@echo "... src/Vector.s"
 .PHONY : help
 
 

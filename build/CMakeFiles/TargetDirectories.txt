@@ -1,3 +1,10 @@
-/home/hiba/projet_C++/build/CMakeFiles/projet.dir
+/home/hiba/projet_C++/build/CMakeFiles/programme.dir
 /home/hiba/projet_C++/build/CMakeFiles/edit_cache.dir
 /home/hiba/projet_C++/build/CMakeFiles/rebuild_cache.dir
+/home/hiba/projet_C++/build/src/CMakeFiles/particules.dir
+/home/hiba/projet_C++/build/src/CMakeFiles/edit_cache.dir
+/home/hiba/projet_C++/build/src/CMakeFiles/rebuild_cache.dir
+/home/hiba/projet_C++/build/test/CMakeFiles/test_vector.dir
+/home/hiba/projet_C++/build/test/CMakeFiles/test_univers.dir
+/home/hiba/projet_C++/build/test/CMakeFiles/edit_cache.dir
+/home/hiba/projet_C++/build/test/CMakeFiles/rebuild_cache.dir

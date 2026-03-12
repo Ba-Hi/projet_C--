@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Wextra -Wl,--dependency-file=CMakeFiles/projet.dir/link.d CMakeFiles/projet.dir/main.cpp.o CMakeFiles/projet.dir/src/Particule.cpp.o CMakeFiles/projet.dir/src/Univers.cpp.o CMakeFiles/projet.dir/src/Vector.cpp.o -o projet

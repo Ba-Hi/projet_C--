@@ -13,6 +13,7 @@ public :
     Vector operator-(const Vector& autre) const;
     Vector operator*(double scalaire) const;
     Vector& operator=(const Vector& source);
+    Vector operator/(const Vector& autre) const;
     void afficher() const;
 };
 

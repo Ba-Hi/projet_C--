@@ -52,3 +52,18 @@ To run the tests, ensure that the test configuration in `tests/CMakeLists.txt` i
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
+
+
+
+
+calcul de force i, j
+hiba@hiba:~/projet_C++/build$ ./test/test_univers 
+Univers créé avec 32768 particules.
+Temps SANS reserve: 0.011046 s
+Temps AVEC reserve: 0.0107367 s
+
+
+i, j allant de i+1
+Univers créé avec 32768 particules.
+Temps SANS reserve: 0.0111301 s
+Temps AVEC reserve: 0.00398719 s

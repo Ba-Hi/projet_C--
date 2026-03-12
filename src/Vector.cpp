@@ -18,6 +18,13 @@ Vector Vector::operator*(double scalaire) const {
     return Vector(x*scalaire, y*scalaire, z*scalaire);
 }
 
+Vector Vector::operator/(const Vector& autre) const {
+    if (autre.x != 0 and autre.y != 0 and autre.z != 0) {
+        return Vector(x / autre.x, y / autre.y , z /autre.z);
+    }
+}
+
+
 Vector &Vector::operator=(const Vector& source){
     if (this != &source) {
     x = source.x;

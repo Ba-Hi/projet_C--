@@ -3,12 +3,13 @@
 #include "Vector.hpp"
 #include "Univers.hpp"
 #include <cstdlib>
+#include <cmath>
 
 int main() {
-    Univers u(3, 2^15);
+    Univers u(3, pow(2, 15));
 
     // creation de 2^15 particules uniformément distribuées sur le cube [0; 1] × [0; 1] × [0; 1].
-    for (int i = 0; i < 2^15; ++i) {
+    for (int i = 0; i < pow(2, 15); ++i) {
         double x = static_cast<double>(rand()) / RAND_MAX;
         double y = static_cast<double>(rand()) / RAND_MAX;
         double z = static_cast<double>(rand()) / RAND_MAX;

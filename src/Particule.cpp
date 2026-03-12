@@ -69,21 +69,42 @@ int Particule::getType() const {
 }
 
 // Calcul des forces gravitationnelles entre particules
+// std::vector<Vector> initialiser(std::vector<Particule>& particleList) {
+//     size_t n = particleList.size();
+//     std::vector<Vector> forces(n, Vector(0.0, 0.0, 0.0));
+
+//     for (size_t i = 0; i < n; ++i) {
+//         for (size_t j = 0; j < n; ++j) {
+//             if (i == j) continue;
+//             const Vector& pi = particleList[i].getPosition();
+//             const Vector& pj = particleList[j].getPosition();
+//             Vector diff = pj - pi;
+//             double distSq = diff.x * diff.x + diff.y * diff.y;
+//             if (distSq == 0.0) continue;
+//             double invDistCubed = 1.0 / std::pow(distSq, 1.5);
+//             double scalar = particleList[i].getMasse() * particleList[j].getMasse() * invDistCubed;
+//             forces[i] = forces[i] + diff * scalar;
+//         }
+//     }
+//     return forces;
+// }
+
 std::vector<Vector> initialiser(std::vector<Particule>& particleList) {
     size_t n = particleList.size();
     std::vector<Vector> forces(n, Vector(0.0, 0.0, 0.0));
 
     for (size_t i = 0; i < n; ++i) {
-        for (size_t j = 0; j < n; ++j) {
-            if (i == j) continue;
+        for (size_t j = i+1; j < n; ++j) {
             const Vector& pi = particleList[i].getPosition();
             const Vector& pj = particleList[j].getPosition();
             Vector diff = pj - pi;
             double distSq = diff.x * diff.x + diff.y * diff.y;
             if (distSq == 0.0) continue;
-            double invDistCubed = 1.0 / std::pow(distSq, 1.5);
+            double invDistCubed = 1.0 / distSq * std::sqrt(distSq);
             double scalar = particleList[i].getMasse() * particleList[j].getMasse() * invDistCubed;
-            forces[i] = forces[i] + diff * scalar;
+            Vector forceIJ = diff * scalar;
+            forces[i] = forces[i] + forceIJ;
+            forces[j] = forces[j] - forceIJ;
         }
     }
     return forces;
