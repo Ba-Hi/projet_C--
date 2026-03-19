@@ -15,8 +15,9 @@ public :
     Vector operator+(const Vector& autre) const;
     Vector operator-(const Vector& autre) const;
     Vector operator*(double scalaire) const;
+    Vector operator/(double scalaire) const;
     Vector& operator=(const Vector& source);
-    Vector operator/(const Vector& autre) const;
+
     void afficher() const;
 
     bool operator==(const Vector& v) const;
@@ -25,7 +26,7 @@ public :
     Vector& operator*=(double scalar);
     Vector& operator/=(double scalar);
     friend Vector operator*(double scalar, const Vector& v);
-    
+    friend Vector operator/(double scalar, const Vector& v);
 };
 
 

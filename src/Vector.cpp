@@ -21,9 +21,12 @@ Vector Vector::operator*(double scalaire) const {
     return Vector(x_*scalaire, y_*scalaire, z_*scalaire);
 }
 
-Vector Vector::operator/(const Vector& autre) const {
-    if (autre.x_ != 0 && autre.y_ != 0 && autre.z_ != 0) {
-        return Vector(x_ / autre.x_ , y_ / autre.y_ , z_ / autre.z_);
+Vector Vector::operator/(double scalar) const {
+    if (scalar != 0) {
+        return Vector(x_ / scalar , y_ / scalar , z_ / scalar);
+    }
+    else {
+        throw std::runtime_error("Division par zéro");
     }
 }
 
@@ -38,17 +41,28 @@ Vector &Vector::operator=(const Vector& source){
 }
 
 void Vector::afficher() const {
-    std::cout << "Vector(" << x << ", " << y << ", " << z << ")" << std::endl;
+    std::cout << "Vector(" << x_ << ", " << y_ << ", " << z_ << ")" << std::endl;
 }
 
 Vector operator*(double s, const Vector&p) {
     return Vector(p.x() * s, p.y() * s, p.z() * s);
 }
 
+Vector operator/(double s, const Vector&p) {
+        if (s != 0) {
+        return Vector(p.x() / s, p.y() / s, p.z() / s);
+    }
+    else {
+        throw std::runtime_error("Division par zéro");
+    }
+    
+}
+
 Vector& Vector::operator+=(const Vector& v){
     x_ += v.x(); y_ += v.y(); z_ += v.z();
     return *this;
 }
+
 Vector& Vector::operator-=(const Vector& v){
     x_ -= v.x(); y_ -= v.y(); z_ -= v.z();
     return *this;
@@ -57,6 +71,7 @@ Vector& Vector::operator*=(double scalar){
     x_ *= scalar; y_ *= scalar; z_ *= scalar;
     return *this;
 }
+
 Vector& Vector::operator/=(double scalar){
     if (std::abs(scalar) < 1e-30) throw std::runtime_error("Vector: division by zero");
     x_ /= scalar; y_ /= scalar; z_ /= scalar;

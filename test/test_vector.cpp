@@ -10,7 +10,8 @@ int main() {
     Vector v5 = v1 * 2.0;
     Vector v6 = 2.0 * v1;
     Vector v7 = v1;
-
+    Vector v8 = 2 / v1;
+    Vector v9 = 0 / v1;
 
     std::cout << "v1: "; v1.afficher();
     std::cout << "expected v1: Vector(1.0, 2.0, 3.0)" << std::endl;
@@ -32,6 +33,11 @@ int main() {
 
     std::cout << "v7: "; v7.afficher();
     std::cout << "expected v7: Vector(1.0, 2.0, 3.0)" << std::endl;
+
+    std::cout << "v8: "; v8.afficher();
+    std::cout << "expected v8: Vector(0.5, 1.0, 1.5)" << std::endl;
     
+    std::cout << "v9: "; v9.afficher();
+    std::cout << "expected v9: Vector(0.5, 1.0, 1.5)" << std::endl;
     return 0;
 }

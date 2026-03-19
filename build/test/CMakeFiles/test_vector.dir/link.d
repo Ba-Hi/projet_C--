@@ -31,8 +31,7 @@ test_vector: \
   /usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crtn.o \
   /lib/x86_64-linux-gnu/libm.so.6 \
-  /lib64/ld-linux-x86-64.so.2 \
-  /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libgcc_s.so.1
+  /lib64/ld-linux-x86-64.so.2
 
 /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/gcrt1.o:
 
@@ -99,5 +98,3 @@ CMakeFiles/test_vector.dir/test_vector.cpp.o:
 /lib/x86_64-linux-gnu/libm.so.6:
 
 /lib64/ld-linux-x86-64.so.2:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libgcc_s.so.1:
