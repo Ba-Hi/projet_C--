@@ -21,8 +21,8 @@ void Univers::afficherUnivers() const {
     std::cout << "Univers (dim=" << dimension << ", n=" << n_particules << ")\n";
     for (size_t i = 0; i < particuleList.size(); ++i) {
         const Vector& pos = particuleList[i].getPosition();
-        std::cout << " particle[" << i << "] = (" << pos.x << ", " << pos.y;
-        if (dimension == 3) std::cout << ", " << pos.z;
+        std::cout << " particle[" << i << "] = (" << pos.x() << ", " << pos.y();
+        if (dimension == 3) std::cout << ", " << pos.z();
         std::cout << ")\n";
     }
 }
@@ -59,7 +59,7 @@ void Univers::avancerParticules(double tEnd, double dt) {
         }
         // affichage pour suivi
         const Vector& pos0 = particuleList[0].getPosition();
-        std::cout << "t=" << t << " pos0=(" << pos0.x << "," << pos0.y << ")\n";
+        std::cout << "t=" << t << " pos0=(" << pos0.x() << "," << pos0.y() << ")\n";
     }
 }
 
