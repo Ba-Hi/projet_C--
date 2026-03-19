@@ -2,34 +2,37 @@
 #include "Vector.hpp"
 
 
-Vector::Vector(double x_init, double y_init, double z_init) :
-        x(x_init), y(y_init), z(z_init) {}
+Vector::Vector(double xinit, double y_init, double z_init) :
+        x_(xinit), y_(y_init), z_(z_init) {}
 
-    
+double Vector::x() const { return x_; }
+double Vector::y() const { return y_; }
+double Vector::z() const { return z_; }
+
 Vector Vector::operator+(const Vector& autre) const {
-        return Vector(x+ autre.x, y + autre.y , z+autre.z);
+        return Vector(x_ + autre.x(), y_ + autre.y() , z_+autre.z());
     }
 
 Vector Vector::operator-(const Vector& autre) const {
-        return Vector(x - autre.x, y - autre.y , z - autre.z);
+        return Vector(x_ - autre.x(), y_ - autre.y() , z_ - autre.z());
     }
 
 Vector Vector::operator*(double scalaire) const {
-    return Vector(x*scalaire, y*scalaire, z*scalaire);
+    return Vector(x_*scalaire, y_*scalaire, z_*scalaire);
 }
 
 Vector Vector::operator/(const Vector& autre) const {
-    if (autre.x != 0 and autre.y != 0 and autre.z != 0) {
-        return Vector(x / autre.x, y / autre.y , z /autre.z);
+    if (autre.x_ != 0 && autre.y_ != 0 && autre.z_ != 0) {
+        return Vector(x_ / autre.x_ , y_ / autre.y_ , z_ / autre.z_);
     }
 }
 
 
 Vector &Vector::operator=(const Vector& source){
     if (this != &source) {
-    x = source.x;
-    y = source.y;
-    z = source.z;
+    x_ = source.x();
+    y_ = source.y();
+    z_ = source.z();
     }
     return *this; // chainage
 }
@@ -39,5 +42,27 @@ void Vector::afficher() const {
 }
 
 Vector operator*(double s, const Vector&p) {
-    return Vector(p.x * s, p.y * s, p.z * s);
+    return Vector(p.x() * s, p.y() * s, p.z() * s);
+}
+
+Vector& Vector::operator+=(const Vector& v){
+    x_ += v.x(); y_ += v.y(); z_ += v.z();
+    return *this;
+}
+Vector& Vector::operator-=(const Vector& v){
+    x_ -= v.x(); y_ -= v.y(); z_ -= v.z();
+    return *this;
+}
+Vector& Vector::operator*=(double scalar){
+    x_ *= scalar; y_ *= scalar; z_ *= scalar;
+    return *this;
+}
+Vector& Vector::operator/=(double scalar){
+    if (std::abs(scalar) < 1e-30) throw std::runtime_error("Vector: division by zero");
+    x_ /= scalar; y_ /= scalar; z_ /= scalar;
+    return *this;
+}
+
+bool Vector::operator==(const Vector& v) const{
+    return x_ == v.x_ && y_ == v.y_ && z_ == v.z_;
 }
