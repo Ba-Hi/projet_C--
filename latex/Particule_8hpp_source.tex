@@ -1,0 +1,61 @@
+\doxysection{Particule.\+hpp}
+\hypertarget{Particule_8hpp_source}{}\label{Particule_8hpp_source}\index{include/Particule.hpp@{include/Particule.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PARTICULE\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PARTICULE\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Vector.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classParticule}{Particule}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classVector}{Vector}}\ position;\ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classVector}{Vector}}\ vitesse;\ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classVector}{Vector}}\ force;\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{double}\ masse;\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ identifiant;\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ categorie;\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classParticule}{Particule}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classVector}{Vector}}\&\ position,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classVector}{Vector}}\&\ vitesse,\ \textcolor{keywordtype}{double}\ masse,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ identifiant,\ \textcolor{keywordtype}{int}\ categorie,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classVector}{Vector}}\&\ force);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classParticule}{Particule}}\&\ \mbox{\hyperlink{classParticule_aa6033bcde54c162b2c12ff5a68072898}{setPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classVector}{Vector}}\&\ newPosition);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classVector}{Vector}}\&\ \mbox{\hyperlink{classParticule_a02b3be4923174770091e1a50b41bedce}{getPosition}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{classParticule}{Particule}}\&\ \mbox{\hyperlink{classParticule_a84161032ee4378806fb28a653c3ff660}{setVitesse}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classVector}{Vector}}\&\ newVitesse);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classVector}{Vector}}\&\ \mbox{\hyperlink{classParticule_a1b54a8f99620e8dd65339106b456f241}{getVitesse}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classParticule}{Particule}}\&\ \mbox{\hyperlink{classParticule_a3901e2ea7634f153c19cd31cfce18fa8}{setMasse}}(\textcolor{keywordtype}{double}\ newMasse);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classParticule_a78d60b9370e3a6c0051f9ea9a55757ac}{getMasse}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{classParticule}{Particule}}\&\ \mbox{\hyperlink{classParticule_a6c90eba028597c9895ac346538f88f77}{setForce}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classVector}{Vector}}\&\ newForce);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classVector}{Vector}}\&\ \mbox{\hyperlink{classParticule_adebd2b4c48c124533f652702d916c94d}{getForce}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{classParticule}{Particule}}\&\ \mbox{\hyperlink{classParticule_a92379d863bb4aad2f05cebf13cb5f319}{setType}}(\textcolor{keywordtype}{int}\ newType);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classParticule_ad3e65a6dd8c422f24fade4b6f787619c}{getType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00107\ \};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00119\ std::vector<Vector>\ initialiser(std::vector<Particule>\&\ particleList);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00133\ \textcolor{keywordtype}{void}\ algo\_stromer\_verlet(std::vector<Particule>\&\ particleList,}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Vector>\ forces\_fold,}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tEnd,}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dt);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

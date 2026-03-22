@@ -1,0 +1,365 @@
+\doxysection{Vector Class Reference}
+\hypertarget{classVector}{}\label{classVector}\index{Vector@{Vector}}
+
+
+Représente Vecteur 3D (x, y, z)  
+
+
+
+
+{\ttfamily \#include $<$Vector.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVector_a484f449bf06fb17f4457fc657af17d83}{Vector}} (double x\+\_\+init, double y\+\_\+iniy, double z\+\_\+init)
+\begin{DoxyCompactList}\small\item\em Constructeur de \doxylink{classVector}{Vector} \+: construit un vecteur avec ses coordonées initiales. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classVector_ae032de1ff0a070a342a7d2e0c06ad61a}{x}} () const
+\begin{DoxyCompactList}\small\item\em Getter de x. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classVector_ac3fcd28ba203ac1c7135cf5943fd99bd}{y}} () const
+\begin{DoxyCompactList}\small\item\em Getter de y. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classVector_a1ced41dca385c9e7a705ef67e664343b}{z}} () const
+\begin{DoxyCompactList}\small\item\em Getter de z. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classVector_a74dceaf2139a06e197f716b1ecd1e2f9}{operator+}} (const \mbox{\hyperlink{classVector}{Vector}} \&autre) const
+\begin{DoxyCompactList}\small\item\em Additionne deux vecteurs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classVector_aac5e379baac1b10f5f1a2dd903e99dbd}{operator-\/}} (const \mbox{\hyperlink{classVector}{Vector}} \&autre) const
+\begin{DoxyCompactList}\small\item\em Soustrait deux vecteurs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classVector_ae41b6a98b67ff15f6c282570618c99cb}{operator\texorpdfstring{$\ast$}{*}}} (double scalaire) const
+\begin{DoxyCompactList}\small\item\em Multiplie un vecteur par un scalaire. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classVector_adafbcee24730e7135ece4c1376387956}{operator/}} (double scalaire) const
+\begin{DoxyCompactList}\small\item\em Divise le vecteur par un scalaire. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVector}{Vector}} \& \mbox{\hyperlink{classVector_a7e557529d4529a71879ff55eafc5e4f3}{operator=}} (const \mbox{\hyperlink{classVector}{Vector}} \&source)
+\begin{DoxyCompactList}\small\item\em Opérateur d\textquotesingle{}affectation. \end{DoxyCompactList}\item 
+\Hypertarget{classVector_aef039240015423077b35cc4b72931402}\label{classVector_aef039240015423077b35cc4b72931402} 
+void {\bfseries afficher} () const
+\begin{DoxyCompactList}\small\item\em Affichage du vecteur. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classVector_ade5fbd0cd01b034d1907e0c93433320c}{operator==}} (const \mbox{\hyperlink{classVector}{Vector}} \&v) const
+\begin{DoxyCompactList}\small\item\em Vérifie si deux vecteurs sont égaux. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVector}{Vector}} \& \mbox{\hyperlink{classVector_ac83a958cb5d93428528e40394c5257a6}{operator+=}} (const \mbox{\hyperlink{classVector}{Vector}} \&v)
+\begin{DoxyCompactList}\small\item\em Ajoute un vecteur au vecteur courant. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVector}{Vector}} \& \mbox{\hyperlink{classVector_ac183243ad11d7db0db651c073c042e12}{operator-\/=}} (const \mbox{\hyperlink{classVector}{Vector}} \&v)
+\begin{DoxyCompactList}\small\item\em Soustrait un vecteur du vecteur courant. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVector}{Vector}} \& \mbox{\hyperlink{classVector_a47a9c62ebf387402e6e9584ece266e1d}{operator\texorpdfstring{$\ast$}{*}=}} (double scalar)
+\begin{DoxyCompactList}\small\item\em Multiplie le vecteur par un scalaire. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVector}{Vector}} \& \mbox{\hyperlink{classVector_aa5110a9cbb8197cbda1b27463b53aa6a}{operator/=}} (double scalar)
+\begin{DoxyCompactList}\small\item\em Divisie le vecteur par un scalaire. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classVector_a45c43d96a8bbe774870183ff33079584}{operator\texorpdfstring{$\ast$}{*}}} (double scalar, const \mbox{\hyperlink{classVector}{Vector}} \&v)
+\begin{DoxyCompactList}\small\item\em Multiplie un scalaire par un vecteur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classVector_ad952f94ae0d70d8756d339136c5ddecb}{operator/}} (double scalar, const \mbox{\hyperlink{classVector}{Vector}} \&v)
+\begin{DoxyCompactList}\small\item\em Divise un scalaire par un vecteur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Représente Vecteur 3D (x, y, z) 
+
+Chaque vecteur a sa composante x, y et z 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classVector_a484f449bf06fb17f4457fc657af17d83}\label{classVector_a484f449bf06fb17f4457fc657af17d83} 
+\index{Vector@{Vector}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}}
+{\footnotesize\ttfamily Vector\+::\+Vector (\begin{DoxyParamCaption}\item[{double}]{x\+\_\+init,  }\item[{double}]{y\+\_\+iniy,  }\item[{double}]{z\+\_\+init }\end{DoxyParamCaption})}
+
+
+
+Constructeur de \doxylink{classVector}{Vector} \+: construit un vecteur avec ses coordonées initiales. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+init} & Position x initiale \\
+\hline
+{\em y\+\_\+iniy} & Position y initiale \\
+\hline
+{\em z\+\_\+init} & Position z initiale \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classVector_ae41b6a98b67ff15f6c282570618c99cb}\label{classVector_ae41b6a98b67ff15f6c282570618c99cb} 
+\index{Vector@{Vector}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector}{Vector}} Vector\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{double}]{scalaire }\end{DoxyParamCaption}) const}
+
+
+
+Multiplie un vecteur par un scalaire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalaire} & Le facteur de multiplication \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un nouveau vecteur résultant du produit 
+\end{DoxyReturn}
+\Hypertarget{classVector_a47a9c62ebf387402e6e9584ece266e1d}\label{classVector_a47a9c62ebf387402e6e9584ece266e1d} 
+\index{Vector@{Vector}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector}{Vector}} \& Vector\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{double}]{scalar }\end{DoxyParamCaption})}
+
+
+
+Multiplie le vecteur par un scalaire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalar} & Le facteur de multiplication \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Une référence vers le vecteur courant modifié 
+\end{DoxyReturn}
+\Hypertarget{classVector_a74dceaf2139a06e197f716b1ecd1e2f9}\label{classVector_a74dceaf2139a06e197f716b1ecd1e2f9} 
+\index{Vector@{Vector}!operator+@{operator+}}
+\index{operator+@{operator+}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector}{Vector}} Vector\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector}{Vector}} \&}]{autre }\end{DoxyParamCaption}) const}
+
+
+
+Additionne deux vecteurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em autre} & Le vecteur à ajouter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un nouveau vecteur résultant de la somme 
+\end{DoxyReturn}
+\Hypertarget{classVector_ac83a958cb5d93428528e40394c5257a6}\label{classVector_ac83a958cb5d93428528e40394c5257a6} 
+\index{Vector@{Vector}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector}{Vector}} \& Vector\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector}{Vector}} \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Ajoute un vecteur au vecteur courant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Le vecteur à ajouter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Une référence vers le vecteur courant modifié 
+\end{DoxyReturn}
+\Hypertarget{classVector_aac5e379baac1b10f5f1a2dd903e99dbd}\label{classVector_aac5e379baac1b10f5f1a2dd903e99dbd} 
+\index{Vector@{Vector}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector}{Vector}} Vector\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector}{Vector}} \&}]{autre }\end{DoxyParamCaption}) const}
+
+
+
+Soustrait deux vecteurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em autre} & Le vecteur à soustraire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un nouveau vecteur résultant de la différence 
+\end{DoxyReturn}
+\Hypertarget{classVector_ac183243ad11d7db0db651c073c042e12}\label{classVector_ac183243ad11d7db0db651c073c042e12} 
+\index{Vector@{Vector}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector}{Vector}} \& Vector\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector}{Vector}} \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Soustrait un vecteur du vecteur courant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Le vecteur à soustraire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Une référence vers le vecteur courant modifié 
+\end{DoxyReturn}
+\Hypertarget{classVector_adafbcee24730e7135ece4c1376387956}\label{classVector_adafbcee24730e7135ece4c1376387956} 
+\index{Vector@{Vector}!operator/@{operator/}}
+\index{operator/@{operator/}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector}{Vector}} Vector\+::operator/ (\begin{DoxyParamCaption}\item[{double}]{scalaire }\end{DoxyParamCaption}) const}
+
+
+
+Divise le vecteur par un scalaire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalaire} & Le diviseur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un nouveau vecteur résultant de la division 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Le scalaire ne doit pas être nul 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Division par zéro 
+\end{DoxyWarning}
+\Hypertarget{classVector_aa5110a9cbb8197cbda1b27463b53aa6a}\label{classVector_aa5110a9cbb8197cbda1b27463b53aa6a} 
+\index{Vector@{Vector}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector}{Vector}} \& Vector\+::operator/= (\begin{DoxyParamCaption}\item[{double}]{scalar }\end{DoxyParamCaption})}
+
+
+
+Divisie le vecteur par un scalaire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalar} & le facteur de division \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Une référence vers le vecteur courant modifié 
+\end{DoxyReturn}
+\Hypertarget{classVector_a7e557529d4529a71879ff55eafc5e4f3}\label{classVector_a7e557529d4529a71879ff55eafc5e4f3} 
+\index{Vector@{Vector}!operator=@{operator=}}
+\index{operator=@{operator=}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector}{Vector}} \& Vector\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector}{Vector}} \&}]{source }\end{DoxyParamCaption})}
+
+
+
+Opérateur d\textquotesingle{}affectation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Le vecteur à copier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Une référence vers le vecteur courant après affectation 
+\end{DoxyReturn}
+\Hypertarget{classVector_ade5fbd0cd01b034d1907e0c93433320c}\label{classVector_ade5fbd0cd01b034d1907e0c93433320c} 
+\index{Vector@{Vector}!operator==@{operator==}}
+\index{operator==@{operator==}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Vector\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector}{Vector}} \&}]{v }\end{DoxyParamCaption}) const}
+
+
+
+Vérifie si deux vecteurs sont égaux. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Autre vecteur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean \+: True si les deux vecteurs sont égaus False sinon 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Le scalaire ne doit pas être nul 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Division par zéro 
+\end{DoxyWarning}
+\Hypertarget{classVector_ae032de1ff0a070a342a7d2e0c06ad61a}\label{classVector_ae032de1ff0a070a342a7d2e0c06ad61a} 
+\index{Vector@{Vector}!x@{x}}
+\index{x@{x}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{x()}{x()}}
+{\footnotesize\ttfamily double Vector\+::x (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter de x. 
+
+\begin{DoxyReturn}{Returns}
+La valeur de x 
+\end{DoxyReturn}
+\Hypertarget{classVector_ac3fcd28ba203ac1c7135cf5943fd99bd}\label{classVector_ac3fcd28ba203ac1c7135cf5943fd99bd} 
+\index{Vector@{Vector}!y@{y}}
+\index{y@{y}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{y()}{y()}}
+{\footnotesize\ttfamily double Vector\+::y (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter de y. 
+
+\begin{DoxyReturn}{Returns}
+La valeur de y 
+\end{DoxyReturn}
+\Hypertarget{classVector_a1ced41dca385c9e7a705ef67e664343b}\label{classVector_a1ced41dca385c9e7a705ef67e664343b} 
+\index{Vector@{Vector}!z@{z}}
+\index{z@{z}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{z()}{z()}}
+{\footnotesize\ttfamily double Vector\+::z (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter de z. 
+
+\begin{DoxyReturn}{Returns}
+La valeur de z 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classVector_a45c43d96a8bbe774870183ff33079584}\label{classVector_a45c43d96a8bbe774870183ff33079584} 
+\index{Vector@{Vector}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector}{Vector}} operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{double}]{scalar,  }\item[{const \mbox{\hyperlink{classVector}{Vector}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Multiplie un scalaire par un vecteur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalar} & Le facteur de multiplication \\
+\hline
+{\em v} & Le vecteur à multiplier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un nouveau vecteur résultant du produit 
+\end{DoxyReturn}
+\Hypertarget{classVector_ad952f94ae0d70d8756d339136c5ddecb}\label{classVector_ad952f94ae0d70d8756d339136c5ddecb} 
+\index{Vector@{Vector}!operator/@{operator/}}
+\index{operator/@{operator/}!Vector@{Vector}}
+\doxysubsubsection{\texorpdfstring{operator/}{operator/}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector}{Vector}} operator/ (\begin{DoxyParamCaption}\item[{double}]{scalar,  }\item[{const \mbox{\hyperlink{classVector}{Vector}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Divise un scalaire par un vecteur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalar} & Le scalaire \\
+\hline
+{\em v} & Le vecteur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un nouveau vecteur résultant de la division 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Division par zéro 
+\end{DoxyWarning}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Vector.\+hpp\item 
+src/Vector.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,33 @@
+\doxysection{Univers.\+hpp}
+\hypertarget{Univers_8hpp_source}{}\label{Univers_8hpp_source}\index{include/Univers.hpp@{include/Univers.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ UNIVERS\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ UNIVERS\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Particule.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Vector.hpp"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUnivers}{Univers}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ dimension;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ n\_particules;}
+\DoxyCodeLine{00012\ \ \ \ \ std::vector<Particule>\ particuleList;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classUnivers}{Univers}}(\textcolor{keywordtype}{int}\ dim,\ \textcolor{keywordtype}{int}\ reserveCount\ =\ 0);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ ajouterParticule(\textcolor{keyword}{const}\ \mbox{\hyperlink{classParticule}{Particule}}\&\ p);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ modifierVitesseUniforme(\textcolor{keyword}{const}\ \mbox{\hyperlink{classVector}{Vector}}\&\ v);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ afficherUnivers()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ avancerParticules(\textcolor{keywordtype}{double}\ tEnd,\ \textcolor{keywordtype}{double}\ dt);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ std::vector<Vector>\ calculerForces()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

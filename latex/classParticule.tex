@@ -1,0 +1,233 @@
+\doxysection{Particule Class Reference}
+\hypertarget{classParticule}{}\label{classParticule}\index{Particule@{Particule}}
+
+
+Représente une particule dans un espace 3D avec position (x, y, z)  
+
+
+
+
+{\ttfamily \#include $<$Particule.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classParticule_a9cf039415350542da141d1a4d089dbca}{Particule}} (const \mbox{\hyperlink{classVector}{Vector}} \&position, const \mbox{\hyperlink{classVector}{Vector}} \&vitesse, double masse, int identifiant, int categorie, const \mbox{\hyperlink{classVector}{Vector}} \&force)
+\begin{DoxyCompactList}\small\item\em Constructeur de \doxylink{classParticule}{Particule} \+: construit une particule avec ses paramètres initiaux. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classParticule}{Particule}} \& \mbox{\hyperlink{classParticule_aa6033bcde54c162b2c12ff5a68072898}{set\+Position}} (const \mbox{\hyperlink{classVector}{Vector}} \&new\+Position)
+\begin{DoxyCompactList}\small\item\em Modifie la position de la particule. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classVector}{Vector}} \& \mbox{\hyperlink{classParticule_a02b3be4923174770091e1a50b41bedce}{get\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Retourne la position de la particule. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classParticule}{Particule}} \& \mbox{\hyperlink{classParticule_a84161032ee4378806fb28a653c3ff660}{set\+Vitesse}} (const \mbox{\hyperlink{classVector}{Vector}} \&new\+Vitesse)
+\begin{DoxyCompactList}\small\item\em Modifie la vitesse de la particule. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classVector}{Vector}} \& \mbox{\hyperlink{classParticule_a1b54a8f99620e8dd65339106b456f241}{get\+Vitesse}} () const
+\begin{DoxyCompactList}\small\item\em Retourne la vitesse de la particule. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classParticule}{Particule}} \& \mbox{\hyperlink{classParticule_a3901e2ea7634f153c19cd31cfce18fa8}{set\+Masse}} (double new\+Masse)
+\begin{DoxyCompactList}\small\item\em Modifie la masse de la particule. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classParticule_a78d60b9370e3a6c0051f9ea9a55757ac}{get\+Masse}} () const
+\begin{DoxyCompactList}\small\item\em Retourne la masse de la particule. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classParticule}{Particule}} \& \mbox{\hyperlink{classParticule_a6c90eba028597c9895ac346538f88f77}{set\+Force}} (const \mbox{\hyperlink{classVector}{Vector}} \&new\+Force)
+\begin{DoxyCompactList}\small\item\em Modifie la force appliquée sur la particule. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classVector}{Vector}} \& \mbox{\hyperlink{classParticule_adebd2b4c48c124533f652702d916c94d}{get\+Force}} () const
+\begin{DoxyCompactList}\small\item\em Retourne la force appliquée sur la particule. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classParticule}{Particule}} \& \mbox{\hyperlink{classParticule_a92379d863bb4aad2f05cebf13cb5f319}{set\+Type}} (int new\+Type)
+\begin{DoxyCompactList}\small\item\em Modifie la catégorie de la particule. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classParticule_ad3e65a6dd8c422f24fade4b6f787619c}{get\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Retourne la catégorie de la particule. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Représente une particule dans un espace 3D avec position (x, y, z) 
+
+Chaque particule possède une position, une vitesse, une force appliquée, une masse, un identifiant unique et une catégorie. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classParticule_a9cf039415350542da141d1a4d089dbca}\label{classParticule_a9cf039415350542da141d1a4d089dbca} 
+\index{Particule@{Particule}!Particule@{Particule}}
+\index{Particule@{Particule}!Particule@{Particule}}
+\doxysubsubsection{\texorpdfstring{Particule()}{Particule()}}
+{\footnotesize\ttfamily Particule\+::\+Particule (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector}{Vector}} \&}]{position,  }\item[{const \mbox{\hyperlink{classVector}{Vector}} \&}]{vitesse,  }\item[{double}]{masse,  }\item[{int}]{identifiant,  }\item[{int}]{categorie,  }\item[{const \mbox{\hyperlink{classVector}{Vector}} \&}]{force }\end{DoxyParamCaption})}
+
+
+
+Constructeur de \doxylink{classParticule}{Particule} \+: construit une particule avec ses paramètres initiaux. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Position initiale de la particule. \\
+\hline
+{\em vitesse} & Vitesse initiale de la particule. \\
+\hline
+{\em masse} & Masse de la particule (doit être strictement positive). \\
+\hline
+{\em identifiant} & Identifiant unique de la particule. \\
+\hline
+{\em categorie} & Catégorie de la particule. \\
+\hline
+{\em force} & Force initiale appliquée sur la particule. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classParticule_adebd2b4c48c124533f652702d916c94d}\label{classParticule_adebd2b4c48c124533f652702d916c94d} 
+\index{Particule@{Particule}!getForce@{getForce}}
+\index{getForce@{getForce}!Particule@{Particule}}
+\doxysubsubsection{\texorpdfstring{getForce()}{getForce()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classVector}{Vector}} \& Particule\+::get\+Force (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne la force appliquée sur la particule. 
+
+\begin{DoxyReturn}{Returns}
+Vecteur force 
+\end{DoxyReturn}
+\Hypertarget{classParticule_a78d60b9370e3a6c0051f9ea9a55757ac}\label{classParticule_a78d60b9370e3a6c0051f9ea9a55757ac} 
+\index{Particule@{Particule}!getMasse@{getMasse}}
+\index{getMasse@{getMasse}!Particule@{Particule}}
+\doxysubsubsection{\texorpdfstring{getMasse()}{getMasse()}}
+{\footnotesize\ttfamily double Particule\+::get\+Masse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne la masse de la particule. 
+
+\begin{DoxyReturn}{Returns}
+La masse. 
+\end{DoxyReturn}
+\Hypertarget{classParticule_a02b3be4923174770091e1a50b41bedce}\label{classParticule_a02b3be4923174770091e1a50b41bedce} 
+\index{Particule@{Particule}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Particule@{Particule}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classVector}{Vector}} \& Particule\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne la position de la particule. 
+
+\begin{DoxyReturn}{Returns}
+Vecteur position en référence. 
+\end{DoxyReturn}
+\Hypertarget{classParticule_ad3e65a6dd8c422f24fade4b6f787619c}\label{classParticule_ad3e65a6dd8c422f24fade4b6f787619c} 
+\index{Particule@{Particule}!getType@{getType}}
+\index{getType@{getType}!Particule@{Particule}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily int Particule\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne la catégorie de la particule. 
+
+\begin{DoxyReturn}{Returns}
+La catégorie. 
+\end{DoxyReturn}
+\Hypertarget{classParticule_a1b54a8f99620e8dd65339106b456f241}\label{classParticule_a1b54a8f99620e8dd65339106b456f241} 
+\index{Particule@{Particule}!getVitesse@{getVitesse}}
+\index{getVitesse@{getVitesse}!Particule@{Particule}}
+\doxysubsubsection{\texorpdfstring{getVitesse()}{getVitesse()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classVector}{Vector}} \& Particule\+::get\+Vitesse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne la vitesse de la particule. 
+
+\begin{DoxyReturn}{Returns}
+Vecteur vitesse en référence. 
+\end{DoxyReturn}
+\Hypertarget{classParticule_a6c90eba028597c9895ac346538f88f77}\label{classParticule_a6c90eba028597c9895ac346538f88f77} 
+\index{Particule@{Particule}!setForce@{setForce}}
+\index{setForce@{setForce}!Particule@{Particule}}
+\doxysubsubsection{\texorpdfstring{setForce()}{setForce()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classParticule}{Particule}} \& Particule\+::set\+Force (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector}{Vector}} \&}]{new\+Force }\end{DoxyParamCaption})}
+
+
+
+Modifie la force appliquée sur la particule. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Force} & Nouvelle force. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Référence sur l\textquotesingle{}objet courant. 
+\end{DoxyReturn}
+\Hypertarget{classParticule_a3901e2ea7634f153c19cd31cfce18fa8}\label{classParticule_a3901e2ea7634f153c19cd31cfce18fa8} 
+\index{Particule@{Particule}!setMasse@{setMasse}}
+\index{setMasse@{setMasse}!Particule@{Particule}}
+\doxysubsubsection{\texorpdfstring{setMasse()}{setMasse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classParticule}{Particule}} \& Particule\+::set\+Masse (\begin{DoxyParamCaption}\item[{double}]{new\+Masse }\end{DoxyParamCaption})}
+
+
+
+Modifie la masse de la particule. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Masse} & Nouvelle masse (doit être strictement positive). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Référence sur l\textquotesingle{}objet courant. 
+\end{DoxyReturn}
+\Hypertarget{classParticule_aa6033bcde54c162b2c12ff5a68072898}\label{classParticule_aa6033bcde54c162b2c12ff5a68072898} 
+\index{Particule@{Particule}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Particule@{Particule}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classParticule}{Particule}} \& Particule\+::set\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector}{Vector}} \&}]{new\+Position }\end{DoxyParamCaption})}
+
+
+
+Modifie la position de la particule. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Position} & Nouvelle position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Référence sur l\textquotesingle{}objet courant. 
+\end{DoxyReturn}
+\Hypertarget{classParticule_a92379d863bb4aad2f05cebf13cb5f319}\label{classParticule_a92379d863bb4aad2f05cebf13cb5f319} 
+\index{Particule@{Particule}!setType@{setType}}
+\index{setType@{setType}!Particule@{Particule}}
+\doxysubsubsection{\texorpdfstring{setType()}{setType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classParticule}{Particule}} \& Particule\+::set\+Type (\begin{DoxyParamCaption}\item[{int}]{new\+Type }\end{DoxyParamCaption})}
+
+
+
+Modifie la catégorie de la particule. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Type} & Nouveau type/catégorie. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Référence sur l\textquotesingle{}objet courant. 
+\end{DoxyReturn}
+\Hypertarget{classParticule_a84161032ee4378806fb28a653c3ff660}\label{classParticule_a84161032ee4378806fb28a653c3ff660} 
+\index{Particule@{Particule}!setVitesse@{setVitesse}}
+\index{setVitesse@{setVitesse}!Particule@{Particule}}
+\doxysubsubsection{\texorpdfstring{setVitesse()}{setVitesse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classParticule}{Particule}} \& Particule\+::set\+Vitesse (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector}{Vector}} \&}]{new\+Vitesse }\end{DoxyParamCaption})}
+
+
+
+Modifie la vitesse de la particule. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Vitesse} & Nouvelle vitesse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Référence sur l\textquotesingle{}objet courant. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Particule.\+hpp\item 
+src/Particule.\+cpp\end{DoxyCompactItemize}

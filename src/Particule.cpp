@@ -19,6 +19,8 @@ Particule::Particule(const Vector& position,
       identifiant(identifiant),
       categorie(categorie)
 {
+    if (masse <= 0)
+        throw std::invalid_argument("La masse doit être strictement positive.");
 }
 
 // Setters et getters

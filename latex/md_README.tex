@@ -1,0 +1,58 @@
+\chapter{README}
+\hypertarget{md_README}{}\label{md_README}\index{README@{README}}
+valgrind --leak-\/check=full --show-\/leak-\/kinds=all --track-\/origins=yes ./euler
+
+valgrind --leak-\/check=full --show-\/leak-\/kinds=all --track-\/origins=yes ./memoire
+
+g++ -\/g -\/Wall -\/Wextra -\/Werror trace.\+cxx -\/o memoire
+
+g++ -\/pg -\/g -\/Wall -\/Wextra -\/Werror Particule.\+cxx -\/o memoire ( all warnings being treated as errors)\hypertarget{md_README_autotoc_md0}{}\doxysection{\texorpdfstring{My CMake Project}{My CMake Project}}\label{md_README_autotoc_md0}
+\hypertarget{md_README_autotoc_md1}{}\doxysubsection{\texorpdfstring{Overview}{Overview}}\label{md_README_autotoc_md1}
+This project is a simple CMake-\/based application that demonstrates the use of CMake for building C++ projects. It includes a main application file, a header file for function declarations, and a configuration file for tests.\hypertarget{md_README_autotoc_md2}{}\doxysubsection{\texorpdfstring{Project Structure}{Project Structure}}\label{md_README_autotoc_md2}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{my-\/cmake-\/project}
+\DoxyCodeLine{├──\ src}
+\DoxyCodeLine{│\ \ \ └──\ main.cpp\ \ \ \ \ \ \ \ \ \ \#\ Entry\ point\ of\ the\ application}
+\DoxyCodeLine{├──\ include}
+\DoxyCodeLine{│\ \ \ └──\ my\_header.h\ \ \ \ \ \ \ \#\ Header\ file\ with\ function\ declarations}
+\DoxyCodeLine{├──\ tests}
+\DoxyCodeLine{│\ \ \ └──\ CMakeLists.txt\ \ \ \ \#\ CMake\ configuration\ for\ tests}
+\DoxyCodeLine{├──\ CMakeLists.txt\ \ \ \ \ \ \ \ \#\ Main\ CMake\ configuration\ file}
+\DoxyCodeLine{└──\ README.md\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Project\ documentation}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md3}{}\doxysubsection{\texorpdfstring{Building the Project}{Building the Project}}\label{md_README_autotoc_md3}
+To build the project, follow these steps\+:
+
+
+\begin{DoxyEnumerate}
+\item Ensure you have CMake installed on your system.
+\item Open a terminal and navigate to the project directory.
+\item Create a build directory\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir\ build}
+\DoxyCodeLine{cd\ build}
+
+\end{DoxyCode}
+
+\item Run CMake to configure the project\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ ..}
+
+\end{DoxyCode}
+
+\item Build the project\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ -\/-\/build\ .}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md4}{}\doxysubsection{\texorpdfstring{Running the Application}{Running the Application}}\label{md_README_autotoc_md4}
+After building the project, you can run the application by executing the generated binary located in the {\ttfamily build} directory.\hypertarget{md_README_autotoc_md5}{}\doxysubsection{\texorpdfstring{Running Tests}{Running Tests}}\label{md_README_autotoc_md5}
+To run the tests, ensure that the test configuration in {\ttfamily tests/\+CMake\+Lists.\+txt} is set up correctly, then follow similar steps to build the tests in a separate build directory.\hypertarget{md_README_autotoc_md6}{}\doxysubsection{\texorpdfstring{License}{License}}\label{md_README_autotoc_md6}
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+calcul de force i, j hiba@hiba\+:\texorpdfstring{$\sim$}{\string~}/projet\+\_\+\+C++/build\$ ./test/test\+\_\+univers \doxylink{classUnivers}{Univers} créé avec 32768 particules. Temps SANS reserve\+: 0.\+011046 s Temps AVEC reserve\+: 0.\+0107367 s
+
+i, j allant de i+1 \doxylink{classUnivers}{Univers} créé avec 32768 particules. Temps SANS reserve\+: 0.\+0111301 s Temps AVEC reserve\+: 0.\+00398719 s 
