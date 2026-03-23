@@ -9,25 +9,26 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Particule.hpp"{}}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Vector.hpp"{}}}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUnivers}{Univers}}\ \{}
-\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ dimension;}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ n\_particules;}
-\DoxyCodeLine{00012\ \ \ \ \ std::vector<Particule>\ particuleList;}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classUnivers}{Univers}}(\textcolor{keywordtype}{int}\ dim,\ \textcolor{keywordtype}{int}\ reserveCount\ =\ 0);}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ ajouterParticule(\textcolor{keyword}{const}\ \mbox{\hyperlink{classParticule}{Particule}}\&\ p);}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ modifierVitesseUniforme(\textcolor{keyword}{const}\ \mbox{\hyperlink{classVector}{Vector}}\&\ v);}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ afficherUnivers()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUnivers}{Univers}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUnivers_a55d9181e9146c359d96782817550d0ed}{dimension}};\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUnivers_a2a9069d48127ce1076e54187e7542b59}{n\_particules}};\ }
+\DoxyCodeLine{00020\ \ \ \ \ std::vector<Particule>\ particuleList;\ }
 \DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ avancerParticules(\textcolor{keywordtype}{double}\ tEnd,\ \textcolor{keywordtype}{double}\ dt);}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ std::vector<Vector>\ calculerForces()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00025\ \};}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classUnivers}{Univers}}(\textcolor{keywordtype}{int}\ dim,\ \textcolor{keywordtype}{int}\ reserveCount\ =\ 0);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUnivers_a076b29d7272b1cbcf851b223d262da35}{ajouterParticule}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classParticule}{Particule}}\&\ p);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUnivers_a489d078c707b403dfe19a753f3e43f0c}{modifierVitesseUniforme}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classVector}{Vector}}\&\ v);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUnivers_a6ee1ad8d959123824390d4dc95222943}{afficherUnivers}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUnivers_ad6925e5c070b099d45bd80bb2624f7e9}{avancerParticules}}(\textcolor{keywordtype}{double}\ tEnd,\ \textcolor{keywordtype}{double}\ dt);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \ \ \ \ std::vector<Vector>\ \mbox{\hyperlink{classUnivers_afba114c87cdba08591f3dd6221273761}{calculerForces}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

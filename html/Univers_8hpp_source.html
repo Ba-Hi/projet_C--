@@ -88,30 +88,38 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Particule.hpp&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;Vector.hpp&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classUnivers.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="classUnivers.html">Univers</a> {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">int</span> dimension;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">int</span> n_particules;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    std::vector&lt;Particule&gt; particuleList;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_class" href="classUnivers.html">Univers</a>(<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> reserveCount = 0);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> ajouterParticule(<span class="keyword">const</span> <a class="code hl_class" href="classParticule.html">Particule</a>&amp; p);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> modifierVitesseUniforme(<span class="keyword">const</span> <a class="code hl_class" href="classVector.html">Vector</a>&amp; v);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> afficherUnivers() <span class="keyword">const</span>;</div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classUnivers.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="classUnivers.html">Univers</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classUnivers.html#a55d9181e9146c359d96782817550d0ed">   18</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classUnivers.html#a55d9181e9146c359d96782817550d0ed">dimension</a>; </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classUnivers.html#a2a9069d48127ce1076e54187e7542b59">   19</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classUnivers.html#a2a9069d48127ce1076e54187e7542b59">n_particules</a>; </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    std::vector&lt;Particule&gt; particuleList; </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> avancerParticules(<span class="keywordtype">double</span> tEnd, <span class="keywordtype">double</span> dt);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::vector&lt;Vector&gt; calculerForces() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="classUnivers.html">Univers</a>(<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> reserveCount = 0);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUnivers.html#a076b29d7272b1cbcf851b223d262da35">ajouterParticule</a>(<span class="keyword">const</span> <a class="code hl_class" href="classParticule.html">Particule</a>&amp; p);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUnivers.html#a489d078c707b403dfe19a753f3e43f0c">modifierVitesseUniforme</a>(<span class="keyword">const</span> <a class="code hl_class" href="classVector.html">Vector</a>&amp; v);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUnivers.html#a6ee1ad8d959123824390d4dc95222943">afficherUnivers</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUnivers.html#ad6925e5c070b099d45bd80bb2624f7e9">avancerParticules</a>(<span class="keywordtype">double</span> tEnd, <span class="keywordtype">double</span> dt);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    std::vector&lt;Vector&gt; <a class="code hl_function" href="classUnivers.html#afba114c87cdba08591f3dd6221273761">calculerForces</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
 </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassParticule_html"><div class="ttname"><a href="classParticule.html">Particule</a></div><div class="ttdoc">Représente une particule dans un espace 3D avec position (x, y, z)</div><div class="ttdef"><b>Definition</b> Particule.hpp:15</div></div>
-<div class="ttc" id="aclassUnivers_html"><div class="ttname"><a href="classUnivers.html">Univers</a></div><div class="ttdef"><b>Definition</b> Univers.hpp:8</div></div>
+<div class="ttc" id="aclassUnivers_html"><div class="ttname"><a href="classUnivers.html">Univers</a></div><div class="ttdoc">Représente un univers (TP3) contenant un ensemble de particules.</div><div class="ttdef"><b>Definition</b> Univers.hpp:16</div></div>
+<div class="ttc" id="aclassUnivers_html_a076b29d7272b1cbcf851b223d262da35"><div class="ttname"><a href="classUnivers.html#a076b29d7272b1cbcf851b223d262da35">Univers::ajouterParticule</a></div><div class="ttdeci">void ajouterParticule(const Particule &amp;p)</div><div class="ttdoc">Ajoute une particule à l'univers.</div><div class="ttdef"><b>Definition</b> Univers.cpp:9</div></div>
+<div class="ttc" id="aclassUnivers_html_a2a9069d48127ce1076e54187e7542b59"><div class="ttname"><a href="classUnivers.html#a2a9069d48127ce1076e54187e7542b59">Univers::n_particules</a></div><div class="ttdeci">int n_particules</div><div class="ttdoc">Nombre de particules.</div><div class="ttdef"><b>Definition</b> Univers.hpp:19</div></div>
+<div class="ttc" id="aclassUnivers_html_a489d078c707b403dfe19a753f3e43f0c"><div class="ttname"><a href="classUnivers.html#a489d078c707b403dfe19a753f3e43f0c">Univers::modifierVitesseUniforme</a></div><div class="ttdeci">void modifierVitesseUniforme(const Vector &amp;v)</div><div class="ttdoc">Applique une vitesse uniforme à toutes les particules.</div><div class="ttdef"><b>Definition</b> Univers.cpp:14</div></div>
+<div class="ttc" id="aclassUnivers_html_a55d9181e9146c359d96782817550d0ed"><div class="ttname"><a href="classUnivers.html#a55d9181e9146c359d96782817550d0ed">Univers::dimension</a></div><div class="ttdeci">int dimension</div><div class="ttdoc">Dimension de l'espace (1D, 2D, 3D)</div><div class="ttdef"><b>Definition</b> Univers.hpp:18</div></div>
+<div class="ttc" id="aclassUnivers_html_a6ee1ad8d959123824390d4dc95222943"><div class="ttname"><a href="classUnivers.html#a6ee1ad8d959123824390d4dc95222943">Univers::afficherUnivers</a></div><div class="ttdeci">void afficherUnivers() const</div><div class="ttdoc">Affiche les informations de l'univers.</div><div class="ttdef"><b>Definition</b> Univers.cpp:20</div></div>
+<div class="ttc" id="aclassUnivers_html_ad6925e5c070b099d45bd80bb2624f7e9"><div class="ttname"><a href="classUnivers.html#ad6925e5c070b099d45bd80bb2624f7e9">Univers::avancerParticules</a></div><div class="ttdeci">void avancerParticules(double tEnd, double dt)</div><div class="ttdoc">Fait évoluer les particules dans le temps.</div><div class="ttdef"><b>Definition</b> Univers.cpp:35</div></div>
+<div class="ttc" id="aclassUnivers_html_afba114c87cdba08591f3dd6221273761"><div class="ttname"><a href="classUnivers.html#afba114c87cdba08591f3dd6221273761">Univers::calculerForces</a></div><div class="ttdeci">std::vector&lt; Vector &gt; calculerForces() const</div><div class="ttdoc">Calcule les forces appliquées sur chaque particule.</div><div class="ttdef"><b>Definition</b> Univers.cpp:30</div></div>
 <div class="ttc" id="aclassVector_html"><div class="ttname"><a href="classVector.html">Vector</a></div><div class="ttdoc">Représente Vecteur 3D (x, y, z)</div><div class="ttdef"><b>Definition</b> Vector.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

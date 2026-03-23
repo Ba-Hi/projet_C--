@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['z_0',['z',['../classVector.html#a1ced41dca385c9e7a705ef67e664343b',1,'Vector']]]
+  ['vector_0',['Vector',['../classVector.html#a484f449bf06fb17f4457fc657af17d83',1,'Vector']]]
 ];

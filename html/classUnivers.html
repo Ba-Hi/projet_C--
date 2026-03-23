@@ -76,40 +76,205 @@ $(function() {
   <div class="headertitle"><div class="title">Univers Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Représente un univers (TP3) contenant un ensemble de particules.  
+ <a href="classUnivers.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Univers_8hpp_source.html">Univers.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a34915c1dd1c06ce9bccdbeb4c31e4a95" id="r_a34915c1dd1c06ce9bccdbeb4c31e4a95"><td class="memItemLeft" align="right" valign="top"><a id="a34915c1dd1c06ce9bccdbeb4c31e4a95" name="a34915c1dd1c06ce9bccdbeb4c31e4a95"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Univers</b> (int dim, int reserveCount=0)</td></tr>
+<tr class="memitem:a34915c1dd1c06ce9bccdbeb4c31e4a95" id="r_a34915c1dd1c06ce9bccdbeb4c31e4a95"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnivers.html#a34915c1dd1c06ce9bccdbeb4c31e4a95">Univers</a> (int dim, int reserveCount=0)</td></tr>
+<tr class="memdesc:a34915c1dd1c06ce9bccdbeb4c31e4a95"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
+<p>&zwj;Liste des particules </p>
+</blockquote>
+ <br /></td></tr>
 <tr class="separator:a34915c1dd1c06ce9bccdbeb4c31e4a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a076b29d7272b1cbcf851b223d262da35" id="r_a076b29d7272b1cbcf851b223d262da35"><td class="memItemLeft" align="right" valign="top"><a id="a076b29d7272b1cbcf851b223d262da35" name="a076b29d7272b1cbcf851b223d262da35"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterParticule</b> (const <a class="el" href="classParticule.html">Particule</a> &amp;p)</td></tr>
+<tr class="memitem:a076b29d7272b1cbcf851b223d262da35" id="r_a076b29d7272b1cbcf851b223d262da35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnivers.html#a076b29d7272b1cbcf851b223d262da35">ajouterParticule</a> (const <a class="el" href="classParticule.html">Particule</a> &amp;p)</td></tr>
+<tr class="memdesc:a076b29d7272b1cbcf851b223d262da35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute une particule à l'univers.  <br /></td></tr>
 <tr class="separator:a076b29d7272b1cbcf851b223d262da35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a489d078c707b403dfe19a753f3e43f0c" id="r_a489d078c707b403dfe19a753f3e43f0c"><td class="memItemLeft" align="right" valign="top"><a id="a489d078c707b403dfe19a753f3e43f0c" name="a489d078c707b403dfe19a753f3e43f0c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>modifierVitesseUniforme</b> (const <a class="el" href="classVector.html">Vector</a> &amp;v)</td></tr>
+<tr class="memitem:a489d078c707b403dfe19a753f3e43f0c" id="r_a489d078c707b403dfe19a753f3e43f0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnivers.html#a489d078c707b403dfe19a753f3e43f0c">modifierVitesseUniforme</a> (const <a class="el" href="classVector.html">Vector</a> &amp;v)</td></tr>
+<tr class="memdesc:a489d078c707b403dfe19a753f3e43f0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique une vitesse uniforme à toutes les particules.  <br /></td></tr>
 <tr class="separator:a489d078c707b403dfe19a753f3e43f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ee1ad8d959123824390d4dc95222943" id="r_a6ee1ad8d959123824390d4dc95222943"><td class="memItemLeft" align="right" valign="top"><a id="a6ee1ad8d959123824390d4dc95222943" name="a6ee1ad8d959123824390d4dc95222943"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherUnivers</b> () const</td></tr>
+<tr class="memdesc:a6ee1ad8d959123824390d4dc95222943"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche les informations de l'univers. <br /></td></tr>
 <tr class="separator:a6ee1ad8d959123824390d4dc95222943"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6925e5c070b099d45bd80bb2624f7e9" id="r_ad6925e5c070b099d45bd80bb2624f7e9"><td class="memItemLeft" align="right" valign="top"><a id="ad6925e5c070b099d45bd80bb2624f7e9" name="ad6925e5c070b099d45bd80bb2624f7e9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>avancerParticules</b> (double tEnd, double dt)</td></tr>
+<tr class="memitem:ad6925e5c070b099d45bd80bb2624f7e9" id="r_ad6925e5c070b099d45bd80bb2624f7e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnivers.html#ad6925e5c070b099d45bd80bb2624f7e9">avancerParticules</a> (double tEnd, double dt)</td></tr>
+<tr class="memdesc:ad6925e5c070b099d45bd80bb2624f7e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait évoluer les particules dans le temps.  <br /></td></tr>
 <tr class="separator:ad6925e5c070b099d45bd80bb2624f7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afba114c87cdba08591f3dd6221273761" id="r_afba114c87cdba08591f3dd6221273761"><td class="memItemLeft" align="right" valign="top"><a id="afba114c87cdba08591f3dd6221273761" name="afba114c87cdba08591f3dd6221273761"></a>
-std::vector&lt; <a class="el" href="classVector.html">Vector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>calculerForces</b> () const</td></tr>
+<tr class="memitem:afba114c87cdba08591f3dd6221273761" id="r_afba114c87cdba08591f3dd6221273761"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classVector.html">Vector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnivers.html#afba114c87cdba08591f3dd6221273761">calculerForces</a> () const</td></tr>
+<tr class="memdesc:afba114c87cdba08591f3dd6221273761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule les forces appliquées sur chaque particule.  <br /></td></tr>
 <tr class="separator:afba114c87cdba08591f3dd6221273761"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a55d9181e9146c359d96782817550d0ed" id="r_a55d9181e9146c359d96782817550d0ed"><td class="memItemLeft" align="right" valign="top"><a id="a55d9181e9146c359d96782817550d0ed" name="a55d9181e9146c359d96782817550d0ed"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>dimension</b></td></tr>
+<tr class="memdesc:a55d9181e9146c359d96782817550d0ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimension de l'espace (1D, 2D, 3D) <br /></td></tr>
 <tr class="separator:a55d9181e9146c359d96782817550d0ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a9069d48127ce1076e54187e7542b59" id="r_a2a9069d48127ce1076e54187e7542b59"><td class="memItemLeft" align="right" valign="top"><a id="a2a9069d48127ce1076e54187e7542b59" name="a2a9069d48127ce1076e54187e7542b59"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>n_particules</b></td></tr>
+<tr class="memdesc:a2a9069d48127ce1076e54187e7542b59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre de particules. <br /></td></tr>
 <tr class="separator:a2a9069d48127ce1076e54187e7542b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcea217e080ff1a2e2680285f33c1b48" id="r_abcea217e080ff1a2e2680285f33c1b48"><td class="memItemLeft" align="right" valign="top"><a id="abcea217e080ff1a2e2680285f33c1b48" name="abcea217e080ff1a2e2680285f33c1b48"></a>
 std::vector&lt; <a class="el" href="classParticule.html">Particule</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>particuleList</b></td></tr>
 <tr class="separator:abcea217e080ff1a2e2680285f33c1b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Représente un univers (TP3) contenant un ensemble de particules. </p>
+<p>Cette classe gère une collection de particules dans un espace de dimension donnée. Elle permet d'ajouter des particules, de modifier leurs vitesses, de calculer les forces et de faire évoluer le système au cours du temps. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a34915c1dd1c06ce9bccdbeb4c31e4a95" name="a34915c1dd1c06ce9bccdbeb4c31e4a95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34915c1dd1c06ce9bccdbeb4c31e4a95">&#9670;&#160;</a></span>Univers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Univers::Univers </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>reserveCount</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><blockquote class="doxtable">
+<p>&zwj;Liste des particules </p>
+</blockquote>
+</p>
+<p>Constructeur de l'univers </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dim</td><td>Dimension de l'espace </td></tr>
+    <tr><td class="paramname">reserveCount</td><td>Nombre de particules à réserver (optionnel) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a076b29d7272b1cbcf851b223d262da35" name="a076b29d7272b1cbcf851b223d262da35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a076b29d7272b1cbcf851b223d262da35">&#9670;&#160;</a></span>ajouterParticule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Univers::ajouterParticule </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classParticule.html">Particule</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute une particule à l'univers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La particule à ajouter </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad6925e5c070b099d45bd80bb2624f7e9" name="ad6925e5c070b099d45bd80bb2624f7e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6925e5c070b099d45bd80bb2624f7e9">&#9670;&#160;</a></span>avancerParticules()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Univers::avancerParticules </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>tEnd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fait évoluer les particules dans le temps. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tEnd</td><td>Temps final de la simulation </td></tr>
+    <tr><td class="paramname">dt</td><td>Pas de temps </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afba114c87cdba08591f3dd6221273761" name="afba114c87cdba08591f3dd6221273761"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afba114c87cdba08591f3dd6221273761">&#9670;&#160;</a></span>calculerForces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classVector.html">Vector</a> &gt; Univers::calculerForces </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule les forces appliquées sur chaque particule. </p>
+<dl class="section return"><dt>Returns</dt><dd>Un vecteur contenant les forces associées à chaque particule </dd></dl>
+
+</div>
+</div>
+<a id="a489d078c707b403dfe19a753f3e43f0c" name="a489d078c707b403dfe19a753f3e43f0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a489d078c707b403dfe19a753f3e43f0c">&#9670;&#160;</a></span>modifierVitesseUniforme()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Univers::modifierVitesseUniforme </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classVector.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Applique une vitesse uniforme à toutes les particules. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Vecteur vitesse appliqué </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="Univers_8hpp_source.html">Univers.hpp</a></li>
 <li>src/<b>Univers.cpp</b></li>

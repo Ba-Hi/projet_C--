@@ -63,3 +63,15 @@ void Univers::avancerParticules(double tEnd, double dt) {
     }
 }
 
+int Univers::getDimension() const{
+    return dimension;
+}
+
+int Univers::getNbParticule() const{
+    return n_particules;
+}
+
+std::vector<Particule> Univers::getParticuleList() const {
+    return particuleList;
+}
+
