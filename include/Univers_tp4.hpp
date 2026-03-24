@@ -7,7 +7,6 @@
 
 
 
-
 class Univers_tp4 {
 public:
     int dimension;
@@ -19,6 +18,9 @@ public:
 public:
     Univers_tp4(const int& dimension, const Vector& l_d, const double& r_cut);
     void initialiser();
+
+private:
+    int indice1D(int i, int j, int k);
 };
 
 #endif
