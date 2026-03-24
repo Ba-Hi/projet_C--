@@ -57,11 +57,6 @@ public:
      */
     std::vector<Vector> calculerForces() const;
 
-    /**
-     * @brief Getter de la dimension
-     * @return La dimension de l'univers
-     */
-    int getDimension() const;
 
     /**
      * @brief Getter de la dimension

@@ -28,7 +28,7 @@ int main() {
         u.ajouterParticule(p);
     }
 
-    std::cout << "Univers créé avec " << u.n_particules << " particules." << std::endl;
+    std::cout << "Univers créé avec " << u.getNbParticule() << " particules." << std::endl;
     
 
 
