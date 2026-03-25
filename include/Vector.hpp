@@ -85,9 +85,9 @@ public :
      */
     Vector& operator=(const Vector& source);
 
-    /**
-     * @brief Affichage du vecteur
-     */
+    double norm() const;
+    double norm2() const;
+
     void afficher() const;
 
 

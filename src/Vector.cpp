@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Vector.hpp"
+#include <cmath>
 
 
 Vector::Vector(double xinit, double y_init, double z_init) :
@@ -8,6 +9,15 @@ Vector::Vector(double xinit, double y_init, double z_init) :
 double Vector::x() const { return x_; }
 double Vector::y() const { return y_; }
 double Vector::z() const { return z_; }
+
+double Vector::norm2() const {
+    return x_ * x_ + y_ * y_ + z_ * z_;
+}
+
+
+double Vector::norm() const {
+    return std::sqrt(norm2());
+}
 
 Vector Vector::operator+(const Vector& autre) const {
         return Vector(x_ + autre.x(), y_ + autre.y() , z_+autre.z());
