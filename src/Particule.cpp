@@ -98,9 +98,9 @@ std::vector<Vector> initialiser(std::vector<Particule>& particleList) {
             const Vector& pi = particleList[i].getPosition();
             const Vector& pj = particleList[j].getPosition();
             Vector diff = pj - pi;
-            double distSq = diff.x() * diff.x() + diff.y() * diff.y();
+            double distSq = diff.norm2();
             if (distSq == 0.0) continue;
-            double invDistCubed = 1.0 / distSq * std::sqrt(distSq);
+            double invDistCubed = 1.0 / (distSq * diff.norm());
             double scalar = particleList[i].getMasse() * particleList[j].getMasse() * invDistCubed;
             Vector forceIJ = diff * scalar;
             forces[i] = forces[i] + forceIJ;
@@ -133,7 +133,7 @@ void algo_stromer_verlet(std::vector<Particule>& particleList,
             Vector newVel = p.getVitesse() + (forces[i] + forces_fold[i]) * (0.5 / p.getMasse());
             p.setVitesse(newVel);
         }
-        const Vector& pos0 = particleList[0].getPosition();
-        std::cout << "t : " << t << " x : " << pos0.x() << " y : " << pos0.y() << "\n";
+        // const Vector& pos0 = particleList[0].getPosition();
+        // std::cout << "t : " << t << " x : " << pos0.x() << " y : " << pos0.y() << "\n";
     }
 }

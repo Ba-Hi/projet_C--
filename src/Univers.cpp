@@ -6,6 +6,30 @@ Univers::Univers(int dim, int reserveCount)
     particuleList.reserve(reserveCount);
 }
 
+int Univers::getDimension() const {
+    return dimension;
+}
+
+int Univers::getNombreParticules() const {
+    return n_particules;
+}
+
+const std::vector<Particule>& Univers::getParticules() const {
+    return particuleList;
+}
+
+void Univers::setDimension(int dim) {
+    dimension = dim;
+}
+
+void Univers::setNombreParticules(int n) {
+    n_particules = n;
+}
+
+void Univers::setParticules(const std::vector<Particule>& particules) {
+    particuleList = particules;
+}
+
 void Univers::ajouterParticule(const Particule& p) {
     particuleList.push_back(p);
     n_particules = particuleList.size();
@@ -58,8 +82,8 @@ void Univers::avancerParticules(double tEnd, double dt) {
             p.setVitesse(newVel);
         }
         // affichage pour suivi
-        const Vector& pos0 = particuleList[0].getPosition();
-        std::cout << "t=" << t << " pos0=(" << pos0.x() << "," << pos0.y() << ")\n";
+        /*const Vector& pos0 = particuleList[0].getPosition();
+        std::cout << "t=" << t << " pos0=(" << pos0.x() << "," << pos0.y() << ")\n";*/
     }
 }
 

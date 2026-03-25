@@ -6,13 +6,23 @@
 #include "Vector.hpp"
 
 class Univers {
-public:
+private:
     int dimension;
     int n_particules;
     std::vector<Particule> particuleList;
 
 public:
     Univers(int dim, int reserveCount = 0);
+
+    // getters
+    int getDimension() const;
+    int getNombreParticules() const;
+    const std::vector<Particule>& getParticules() const;
+
+    // setters
+    void setDimension(int dim);
+    void setNombreParticules(int n);
+    void setParticules(const std::vector<Particule>& particules);
 
     void ajouterParticule(const Particule& p);
     void modifierVitesseUniforme(const Vector& v);

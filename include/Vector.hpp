@@ -18,6 +18,9 @@ public :
     Vector operator/(double scalaire) const;
     Vector& operator=(const Vector& source);
 
+    double norm() const;
+    double norm2() const;
+
     void afficher() const;
 
     bool operator==(const Vector& v) const;

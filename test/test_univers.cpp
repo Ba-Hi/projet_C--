@@ -1,3 +1,4 @@
+#include "gtest/gtest.h"
 #include <vector>
 #include "Particule.hpp"
 #include "Vector.hpp"
@@ -8,7 +9,156 @@
 #include <iostream>
 #include <chrono> // Pour la mesure du temps
 
+TEST(UniversTest, CreationEmptyUnivers) {
+    Univers u(3);
+    EXPECT_EQ(u.getDimension(), 3);
+    EXPECT_EQ(u.getNombreParticules(), 0);
+    EXPECT_TRUE(u.getParticules().empty());
+}
 
+TEST(UniversTest, CreationUnivers) {
+    Univers u(3, pow(2, 15));
+    EXPECT_EQ(u.getNombreParticules(), 0);
+    EXPECT_GE(u.getParticules().capacity(), pow(2, 15));
+}
+
+// Ajout de particules et vérification du nombre de particules
+TEST(UniversTest, AddOneParticule) {
+    Univers u(3);
+    Particule p(Vector(1,2,3), Vector(0,0,0), 1.0, 0, 0, Vector(0,0,0));
+    u.ajouterParticule(p);
+    EXPECT_EQ(u.getNombreParticules(), 1);
+    EXPECT_EQ(u.getParticules().size(), 1);
+}
+
+TEST(UniversTest, AddMultipleParticules) {
+    Univers u(3);
+    for (int i = 0; i < 100; ++i)
+        u.ajouterParticule(Particule(Vector(i,0,0), Vector(0,0,0), 1.0, i, 0, Vector(0,0,0)));
+    EXPECT_EQ(u.getNombreParticules(), 100);
+}
+
+TEST(UniversTest, CorrectAddParticulesPosition) {
+    Univers u(3);
+    Particule p(Vector(1,2,3), Vector(0,0,0), 1.0, 0, 0, Vector(0,0,0));
+    u.ajouterParticule(p);
+    EXPECT_DOUBLE_EQ(u.getParticules()[0].getPosition().x(), 1.0);
+    EXPECT_DOUBLE_EQ(u.getParticules()[0].getPosition().y(), 2.0);
+    EXPECT_DOUBLE_EQ(u.getParticules()[0].getPosition().z(), 3.0);
+}
+
+// Reserve performance test
+
+TEST(UniversTest, ReserveIsFaster) {
+    int n = 32768;
+
+    auto t0 = std::chrono::high_resolution_clock::now();
+    Univers u1(3, 0);
+    for (int i = 0; i < n; ++i)
+        u1.ajouterParticule(Particule(Vector(0,0,0), Vector(0,0,0), 1.0, i, 0, Vector(0,0,0)));
+    double sans = std::chrono::duration<double>(
+        std::chrono::high_resolution_clock::now() - t0).count();
+
+    auto t2 = std::chrono::high_resolution_clock::now();
+    Univers u2(3, n);
+    for (int i = 0; i < n; ++i)
+        u2.ajouterParticule(Particule(Vector(0,0,0), Vector(0,0,0), 1.0, i, 0, Vector(0,0,0)));
+    double avec = std::chrono::duration<double>(
+        std::chrono::high_resolution_clock::now() - t2).count();
+
+    std::cout << "Sans reserve: " << sans << "s  Avec reserve: " << avec << "s\n";
+    EXPECT_LT(avec, sans);
+}
+
+// Forces test
+
+TEST(UniversTest, ForcesEmptyUnivers) {
+    Univers u(3);
+    EXPECT_TRUE(u.calculerForces().empty());
+}
+
+TEST(UniversTest, ForcesOneParticule) {
+    Univers u(3);
+    Particule p(Vector(0,0,0), Vector(0,0,0), 1.0, 0, 0, Vector(0,0,0));
+    u.ajouterParticule(p);
+    std::vector<Vector> forces = u.calculerForces();
+    EXPECT_EQ(forces.size(), 1);
+    EXPECT_DOUBLE_EQ(forces[0].x(), 0.0);
+    EXPECT_DOUBLE_EQ(forces[0].y(), 0.0);
+    EXPECT_DOUBLE_EQ(forces[0].z(), 0.0);
+}
+
+TEST(UniversTest, ForcesTwoParticules) {
+    Univers u(3);
+    u.ajouterParticule(Particule(Vector(0,0,0), Vector(0,0,0), 1.0, 0, 0, Vector(0,0,0)));
+    u.ajouterParticule(Particule(Vector(1,0,0), Vector(0,0,0), 1.0, 1, 0, Vector(0,0,0)));
+    auto forces = u.calculerForces();
+
+    // G * m1 * m2 / r² = 1 * 1 * 1 / 1²
+    double G = 1; // On considère G = 1 au lieu de 6.67430e-11;
+    EXPECT_NEAR(forces[0].x(), G, 1e-15);   // attracted toward pj (+x)
+    EXPECT_NEAR(forces[1].x(), -G, 1e-15);  // attracted toward pi (-x)
+}
+
+TEST(UniversTest, ForceSymetry) {
+    Univers u(3);
+    u.ajouterParticule(Particule(Vector(0,0,0), Vector(0,0,0), 1.0, 0, 0, Vector(0,0,0)));
+    u.ajouterParticule(Particule(Vector(1,0,0), Vector(0,0,0), 1.0, 1, 0, Vector(0,0,0)));
+    auto forces = u.calculerForces();
+    EXPECT_EQ(forces.size(), 2);
+    EXPECT_NEAR(forces[0].x() + forces[1].x(), 0.0, 1e-10);
+    EXPECT_NEAR(forces[0].y() + forces[1].y(), 0.0, 1e-10);
+    EXPECT_NEAR(forces[0].z() + forces[1].z(), 0.0, 1e-10);
+}
+
+TEST(UniversTest, CorrectForceSize) {
+    Univers u(3);
+    for (int i = 0; i < 5; ++i)
+        u.ajouterParticule(Particule(Vector(i,0,0), Vector(0,0,0), 1.0, i, 0, Vector(0,0,0)));
+    EXPECT_EQ(u.calculerForces().size(), 5);
+}
+
+// Avancer particules test
+
+TEST(UniversTest, AvancerParticulesEmptyUnivers) {
+    Univers u(3);
+    EXPECT_NO_THROW(u.avancerParticules(1.0, 0.1));
+}
+
+TEST(UniversTest, AvancerPositionChange) {
+    Univers u(3);
+    u.ajouterParticule(Particule(Vector(0,0,0), Vector(1,0,0), 1.0, 0, 0, Vector(0,0,0)));
+    u.ajouterParticule(Particule(Vector(100,0,0), Vector(0,0,0), 1.0, 1, 0, Vector(0,0,0)));
+
+    double before = u.getParticules()[0].getPosition().x();
+    u.avancerParticules(0.01, 0.01);
+    double after = u.getParticules()[0].getPosition().x();
+
+    EXPECT_NE(after, before);
+}
+
+// SPEEEEEED
+
+TEST(UniversTest, ModifierVitesseUniforme) {
+    Univers u(3);
+    for (int i = 0; i < 5; ++i)
+        u.ajouterParticule(Particule(Vector(i,0,0), Vector(0,0,0), 1.0, i, 0, Vector(0,0,0)));
+
+    u.modifierVitesseUniforme(Vector(1, 2, 3));
+
+    for (const auto& p : u.getParticules()) {
+        EXPECT_DOUBLE_EQ(p.getVitesse().x(), 1.0);
+        EXPECT_DOUBLE_EQ(p.getVitesse().y(), 2.0);
+        EXPECT_DOUBLE_EQ(p.getVitesse().z(), 3.0);
+    }
+}
+
+TEST(UniversTest, ModifierVitesseUniformeVideSansCrash) {
+    Univers u(3);
+    EXPECT_NO_THROW(u.modifierVitesseUniforme(Vector(1, 2, 3)));
+}
+
+/*
 int main() {
     Univers u(3, pow(2, 15));
 
@@ -28,9 +178,7 @@ int main() {
         u.ajouterParticule(p);
     }
 
-    std::cout << "Univers créé avec " << u.n_particules << " particules." << std::endl;
-    
-
+    std::cout << "Univers créé avec " << u.getNombreParticules() << " particules." << std::endl;
 
     int n = 32768; // 2^15
 
@@ -72,4 +220,4 @@ int main() {
     }
 
     return 0;
-}
+}*/
