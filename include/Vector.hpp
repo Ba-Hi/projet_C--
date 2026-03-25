@@ -85,9 +85,21 @@ public :
      */
     Vector& operator=(const Vector& source);
 
+    /**
+     * @brief Norme euclidienne d'un vecteur
+     * @return La norme du vecteur
+     */
     double norm() const;
+
+    /**
+     * @brief Norme carrée euclidienne d'un vecteur
+     * @return La norme carrée du vecteur
+     */
     double norm2() const;
 
+    /**
+     * @brief Afficher les coordonnées du vecteur
+     */
     void afficher() const;
 
 
