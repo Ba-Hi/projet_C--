@@ -3,17 +3,36 @@
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classCellule_ac7f918b23c6b491e6fd31225979ddddc}\label{classCellule_ac7f918b23c6b491e6fd31225979ddddc} 
-{\bfseries Cellule} (const std\+::vector$<$ \mbox{\hyperlink{classParticule}{Particule}} $>$ particule\+List\+Initiale)
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
+\Hypertarget{classCellule_a5fa69e4c10c1220b68b55ebfbf3e5243}\label{classCellule_a5fa69e4c10c1220b68b55ebfbf3e5243} 
+{\bfseries Cellule} (const double taille\+Cellule, int i, int j, int k, std\+::vector$<$ \mbox{\hyperlink{classParticule}{Particule}} $>$ particule\+List\+Initiale)
 \item 
-\Hypertarget{classCellule_afa34bb7663ee734169cf07a3ad6d01ed}\label{classCellule_afa34bb7663ee734169cf07a3ad6d01ed} 
-std\+::vector$<$ \mbox{\hyperlink{classParticule}{Particule}} $>$ {\bfseries particule\+List}
+\Hypertarget{classCellule_a17d0400bc997d6767cd9e68b00a94317}\label{classCellule_a17d0400bc997d6767cd9e68b00a94317} 
+double {\bfseries get\+Taille\+Cellule} () const
+\item 
+\Hypertarget{classCellule_ae0f176447d02381c615a7304c9d5ffc6}\label{classCellule_ae0f176447d02381c615a7304c9d5ffc6} 
+std\+::vector$<$ \mbox{\hyperlink{classParticule}{Particule}} $>$ \& {\bfseries get\+Particule\+List} ()
+\item 
+\Hypertarget{classCellule_ac231abb12c254fca052120866dde49a5}\label{classCellule_ac231abb12c254fca052120866dde49a5} 
+std\+::vector$<$ \mbox{\hyperlink{classCellule}{Cellule}} \texorpdfstring{$\ast$}{*} $>$ \& {\bfseries get\+Voisines} ()
+\item 
+\Hypertarget{classCellule_ad3656b7f339e5506857f32b81d3c25e7}\label{classCellule_ad3656b7f339e5506857f32b81d3c25e7} 
+\mbox{\hyperlink{classCellule}{Cellule}} \& {\bfseries set\+Taille\+Cellule} (const double \&taille)
+\item 
+\Hypertarget{classCellule_ae851c201ddd911463f4576c4ac9fc293}\label{classCellule_ae851c201ddd911463f4576c4ac9fc293} 
+\mbox{\hyperlink{classCellule}{Cellule}} \& {\bfseries set\+List\+Particule} (const std\+::vector$<$ \mbox{\hyperlink{classParticule}{Particule}} $>$ \&list\+Part)
+\item 
+\Hypertarget{classCellule_a505d1568c9bc35cb5dc8f341f9877022}\label{classCellule_a505d1568c9bc35cb5dc8f341f9877022} 
+\mbox{\hyperlink{classVector}{Vector}} {\bfseries get\+Position\+Cellule} () const
+\item 
+\Hypertarget{classCellule_a01186469ffa2ea91dbed6bcf572d7e40}\label{classCellule_a01186469ffa2ea91dbed6bcf572d7e40} 
+void {\bfseries ajouter\+Voisine} (\mbox{\hyperlink{classCellule}{Cellule}} \texorpdfstring{$\ast$}{*}voisine)
+\item 
+\Hypertarget{classCellule_a3a425b44f29ea8c2235a121649f1663c}\label{classCellule_a3a425b44f29ea8c2235a121649f1663c} 
+void {\bfseries ajouter\+Particule} (const \mbox{\hyperlink{classParticule}{Particule}} \&p)
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/Cellule.\+hpp\end{DoxyCompactItemize}
+include/Cellule.\+hpp\item 
+src/Cellule.\+cpp\end{DoxyCompactItemize}

@@ -26,19 +26,13 @@ void {\bfseries afficher\+Univers} () const
 void \mbox{\hyperlink{classUnivers_ad6925e5c070b099d45bd80bb2624f7e9}{avancer\+Particules}} (double t\+End, double dt)
 \begin{DoxyCompactList}\small\item\em Fait évoluer les particules dans le temps. \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{classVector}{Vector}} $>$ \mbox{\hyperlink{classUnivers_afba114c87cdba08591f3dd6221273761}{calculer\+Forces}} () const
-\begin{DoxyCompactList}\small\item\em Calcule les forces appliquées sur chaque particule. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\Hypertarget{classUnivers_a55d9181e9146c359d96782817550d0ed}\label{classUnivers_a55d9181e9146c359d96782817550d0ed} 
-int {\bfseries dimension}
-\begin{DoxyCompactList}\small\item\em Dimension de l\textquotesingle{}espace (1D, 2D, 3D) \end{DoxyCompactList}\item 
-\Hypertarget{classUnivers_a2a9069d48127ce1076e54187e7542b59}\label{classUnivers_a2a9069d48127ce1076e54187e7542b59} 
-int {\bfseries n\+\_\+particules}
-\begin{DoxyCompactList}\small\item\em Nombre de particules. \end{DoxyCompactList}\item 
-\Hypertarget{classUnivers_abcea217e080ff1a2e2680285f33c1b48}\label{classUnivers_abcea217e080ff1a2e2680285f33c1b48} 
-std\+::vector$<$ \mbox{\hyperlink{classParticule}{Particule}} $>$ {\bfseries particule\+List}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Calcule les forces appliquées sur chaque particule. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUnivers_aa755e1be1978cc64d3b66c92ca35a81d}{get\+Dimension}} () const
+\begin{DoxyCompactList}\small\item\em Getter de la dimension. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUnivers_a0d3ae6d220682eae268babaa54ddbf57}{get\+Nb\+Particule}} () const
+\begin{DoxyCompactList}\small\item\em Getter du nombre de particules. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classParticule}{Particule}} $>$ \mbox{\hyperlink{classUnivers_a06f237061a63d9585f4ef669e090d21a}{get\+Particule\+List}} () const
+\begin{DoxyCompactList}\small\item\em Getter de la liste des particules. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -113,6 +107,45 @@ Calcule les forces appliquées sur chaque particule.
 
 \begin{DoxyReturn}{Returns}
 Un vecteur contenant les forces associées à chaque particule 
+\end{DoxyReturn}
+\Hypertarget{classUnivers_aa755e1be1978cc64d3b66c92ca35a81d}\label{classUnivers_aa755e1be1978cc64d3b66c92ca35a81d} 
+\index{Univers@{Univers}!getDimension@{getDimension}}
+\index{getDimension@{getDimension}!Univers@{Univers}}
+\doxysubsubsection{\texorpdfstring{getDimension()}{getDimension()}}
+{\footnotesize\ttfamily int Univers\+::get\+Dimension (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter de la dimension. 
+
+\begin{DoxyReturn}{Returns}
+La dimension de l\textquotesingle{}univers 
+\end{DoxyReturn}
+\Hypertarget{classUnivers_a0d3ae6d220682eae268babaa54ddbf57}\label{classUnivers_a0d3ae6d220682eae268babaa54ddbf57} 
+\index{Univers@{Univers}!getNbParticule@{getNbParticule}}
+\index{getNbParticule@{getNbParticule}!Univers@{Univers}}
+\doxysubsubsection{\texorpdfstring{getNbParticule()}{getNbParticule()}}
+{\footnotesize\ttfamily int Univers\+::get\+Nb\+Particule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter du nombre de particules. 
+
+\begin{DoxyReturn}{Returns}
+Nombre de particules 
+\end{DoxyReturn}
+\Hypertarget{classUnivers_a06f237061a63d9585f4ef669e090d21a}\label{classUnivers_a06f237061a63d9585f4ef669e090d21a} 
+\index{Univers@{Univers}!getParticuleList@{getParticuleList}}
+\index{getParticuleList@{getParticuleList}!Univers@{Univers}}
+\doxysubsubsection{\texorpdfstring{getParticuleList()}{getParticuleList()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classParticule}{Particule}} $>$ Univers\+::get\+Particule\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter de la liste des particules. 
+
+\begin{DoxyReturn}{Returns}
+Liste de particules 
 \end{DoxyReturn}
 \Hypertarget{classUnivers_a489d078c707b403dfe19a753f3e43f0c}\label{classUnivers_a489d078c707b403dfe19a753f3e43f0c} 
 \index{Univers@{Univers}!modifierVitesseUniforme@{modifierVitesseUniforme}}

@@ -10,9 +10,9 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Vector.hpp"{}}}
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUnivers}{Univers}}\ \{}
-\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUnivers_a55d9181e9146c359d96782817550d0ed}{dimension}};\ }
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUnivers_a2a9069d48127ce1076e54187e7542b59}{n\_particules}};\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ dimension;\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ n\_particules;\ }
 \DoxyCodeLine{00020\ \ \ \ \ std::vector<Particule>\ particuleList;\ }
 \DoxyCodeLine{00021\ }
 \DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
@@ -27,8 +27,16 @@
 \DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUnivers_ad6925e5c070b099d45bd80bb2624f7e9}{avancerParticules}}(\textcolor{keywordtype}{double}\ tEnd,\ \textcolor{keywordtype}{double}\ dt);}
 \DoxyCodeLine{00053\ }
 \DoxyCodeLine{00058\ \ \ \ \ std::vector<Vector>\ \mbox{\hyperlink{classUnivers_afba114c87cdba08591f3dd6221273761}{calculerForces}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00059\ }
 \DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUnivers_aa755e1be1978cc64d3b66c92ca35a81d}{getDimension}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUnivers_a0d3ae6d220682eae268babaa54ddbf57}{getNbParticule}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ std::vector<Particule>\ \mbox{\hyperlink{classUnivers_a06f237061a63d9585f4ef669e090d21a}{getParticuleList}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}
