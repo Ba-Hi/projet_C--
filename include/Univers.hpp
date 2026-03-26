@@ -13,7 +13,7 @@
  * et de faire évoluer le système au cours du temps.
  */
 
-class Univers 
+class Univers
 {
 private:
     int dimension; ///< Dimension de l'espace (1D, 2D, 3D)
@@ -73,14 +73,29 @@ public:
 
     /**
      * @brief Getter de la liste des particules
-     * @return Liste de particules
+     * @return Référence à la liste de particules
      */
     const std::vector<Particule>& getParticules() const;
 
+    /**
+     * @brief Modifie la dimension.
+     * @param dim Nouvelle dimension.
+     * @return Référence sur l'objet courant.
+     */
     Univers& setDimension(int dim) ;
 
+    /**
+     * @brief Modifie le nombre de particule.
+     * @param n nombre de particules
+     * @return Référence sur l'objet courant.
+     */
     Univers& setNombreParticules(int n) ;
 
+    /**
+     * @brief Modifie la liste des particules.
+     * @param particules nouvelle liste de particules
+     * @return Référence sur l'objet courant.
+     */
     Univers& setParticules(const std::vector<Particule>& particules) ;
 
 };
