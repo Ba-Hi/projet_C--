@@ -13,7 +13,8 @@
  * et de faire évoluer le système au cours du temps.
  */
 
-class Univers {
+class Univers 
+{
 private:
     int dimension; ///< Dimension de l'espace (1D, 2D, 3D)
     int n_particules; ///< Nombre de particules 
@@ -80,7 +81,8 @@ public:
 
     Univers& setNombreParticules(int n) ;
 
-    Univers& setParticules(const std::vector<Particule>& particules);
+    Univers& setParticules(const std::vector<Particule>& particules) ;
+
 };
 
 #endif

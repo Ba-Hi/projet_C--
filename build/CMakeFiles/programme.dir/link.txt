@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -pg  -pg -Wl,--dependency-file=CMakeFiles/programme.dir/link.d CMakeFiles/programme.dir/main.cpp.o -o programme  src/libparticules.a
