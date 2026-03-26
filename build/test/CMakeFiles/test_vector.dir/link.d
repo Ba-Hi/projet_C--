@@ -4,6 +4,8 @@ test_vector: \
   /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o \
   CMakeFiles/test_vector.dir/test_vector.cpp.o \
   ../src/libparticules.a \
+  ../lib/libgtest_main.a \
+  ../lib/libgtest.a \
   /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libm.so \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libm.so \
@@ -30,7 +32,6 @@ test_vector: \
   /usr/lib/gcc/x86_64-linux-gnu/15/libgcc.a \
   /usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crtn.o \
-  /lib/x86_64-linux-gnu/libm.so.6 \
   /lib64/ld-linux-x86-64.so.2
 
 /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/gcrt1.o:
@@ -42,6 +43,10 @@ test_vector: \
 CMakeFiles/test_vector.dir/test_vector.cpp.o:
 
 ../src/libparticules.a:
+
+../lib/libgtest_main.a:
+
+../lib/libgtest.a:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so:
 
@@ -94,7 +99,5 @@ CMakeFiles/test_vector.dir/test_vector.cpp.o:
 /usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crtn.o:
-
-/lib/x86_64-linux-gnu/libm.so.6:
 
 /lib64/ld-linux-x86-64.so.2:

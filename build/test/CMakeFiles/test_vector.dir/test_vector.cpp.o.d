@@ -1,7 +1,8 @@
 test/CMakeFiles/test_vector.dir/test_vector.cpp.o: \
  /home/hiba/projet_C++/test/test_vector.cpp /usr/include/stdc-predef.h \
- /home/hiba/projet_C++/include/Vector.hpp /usr/include/c++/15/iostream \
- /usr/include/c++/15/bits/requires_hosted.h \
+ /home/hiba/projet_C++/include/Vector.hpp \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/gtest.h \
+ /usr/include/c++/15/cstddef \
  /usr/include/x86_64-linux-gnu/c++/15/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/15/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -12,15 +13,51 @@ test/CMakeFiles/test_vector.dir/test_vector.cpp.o: \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/15/bits/cpu_defines.h \
- /usr/include/c++/15/pstl/pstl_config.h /usr/include/c++/15/ostream \
- /usr/include/c++/15/bits/ostream.h /usr/include/c++/15/ios \
- /usr/include/c++/15/iosfwd /usr/include/c++/15/bits/stringfwd.h \
- /usr/include/c++/15/bits/memoryfwd.h /usr/include/c++/15/bits/postypes.h \
+ /usr/include/c++/15/pstl/pstl_config.h \
+ /usr/lib/gcc/x86_64-linux-gnu/15/include/stddef.h \
+ /usr/include/c++/15/bits/version.h /usr/include/c++/15/limits \
+ /usr/include/c++/15/memory /usr/include/c++/15/bits/memoryfwd.h \
+ /usr/include/c++/15/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/15/bits/c++allocator.h \
+ /usr/include/c++/15/bits/new_allocator.h /usr/include/c++/15/new \
+ /usr/include/c++/15/bits/exception.h \
+ /usr/include/c++/15/bits/functexcept.h \
+ /usr/include/c++/15/bits/exception_defines.h \
+ /usr/include/c++/15/bits/move.h /usr/include/c++/15/type_traits \
+ /usr/include/c++/15/bits/stl_tempbuf.h \
+ /usr/include/c++/15/bits/stl_construct.h \
+ /usr/include/c++/15/bits/stl_iterator_base_types.h \
+ /usr/include/c++/15/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/15/bits/concept_check.h \
+ /usr/include/c++/15/debug/assertions.h \
+ /usr/include/c++/15/bits/stl_pair.h /usr/include/c++/15/bits/utility.h \
+ /usr/include/c++/15/ext/numeric_traits.h \
+ /usr/include/c++/15/bits/cpp_type_traits.h \
+ /usr/include/c++/15/ext/type_traits.h \
+ /usr/include/c++/15/bits/stl_uninitialized.h \
+ /usr/include/c++/15/bits/ptr_traits.h \
+ /usr/include/c++/15/bits/stl_algobase.h \
+ /usr/include/c++/15/bits/stl_iterator.h \
+ /usr/include/c++/15/debug/debug.h \
+ /usr/include/c++/15/bits/predefined_ops.h /usr/include/c++/15/bit \
+ /usr/include/c++/15/concepts /usr/include/c++/15/ext/alloc_traits.h \
+ /usr/include/c++/15/bits/alloc_traits.h \
+ /usr/include/c++/15/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/15/bits/align.h \
+ /usr/include/c++/15/bits/uses_allocator.h \
+ /usr/include/c++/15/bits/unique_ptr.h /usr/include/c++/15/tuple \
+ /usr/include/c++/15/bits/invoke.h \
+ /usr/include/c++/15/bits/stl_function.h \
+ /usr/include/c++/15/backward/binders.h \
+ /usr/include/c++/15/bits/functional_hash.h \
+ /usr/include/c++/15/bits/hash_bytes.h \
+ /usr/include/c++/15/bits/shared_ptr.h /usr/include/c++/15/iosfwd \
+ /usr/include/c++/15/bits/requires_hosted.h \
+ /usr/include/c++/15/bits/stringfwd.h /usr/include/c++/15/bits/postypes.h \
  /usr/include/c++/15/cwchar /usr/include/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /usr/lib/gcc/x86_64-linux-gnu/15/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/15/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
@@ -30,31 +67,21 @@ test/CMakeFiles/test_vector.dir/test_vector.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/c++/15/exception /usr/include/c++/15/bits/exception.h \
- /usr/include/c++/15/bits/version.h \
- /usr/include/c++/15/bits/exception_ptr.h \
- /usr/include/c++/15/bits/exception_defines.h \
- /usr/include/c++/15/bits/cxxabi_init_exception.h \
- /usr/include/c++/15/typeinfo /usr/include/c++/15/bits/hash_bytes.h \
- /usr/include/c++/15/new /usr/include/c++/15/bits/move.h \
- /usr/include/c++/15/type_traits \
- /usr/include/c++/15/bits/nested_exception.h \
- /usr/include/c++/15/bits/char_traits.h \
- /usr/include/c++/15/bits/localefwd.h \
- /usr/include/x86_64-linux-gnu/c++/15/bits/c++locale.h \
- /usr/include/c++/15/clocale /usr/include/locale.h \
- /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/15/cctype \
- /usr/include/ctype.h /usr/include/x86_64-linux-gnu/bits/types.h \
- /usr/include/x86_64-linux-gnu/bits/typesizes.h \
- /usr/include/x86_64-linux-gnu/bits/time64.h \
- /usr/include/x86_64-linux-gnu/bits/endian.h \
- /usr/include/x86_64-linux-gnu/bits/endianness.h \
- /usr/include/c++/15/bits/ios_base.h /usr/include/c++/15/ext/atomicity.h \
+ /usr/include/c++/15/bits/shared_ptr_base.h /usr/include/c++/15/typeinfo \
+ /usr/include/c++/15/bits/allocated_ptr.h \
+ /usr/include/c++/15/bits/refwrap.h \
+ /usr/include/c++/15/ext/aligned_buffer.h \
+ /usr/include/c++/15/ext/atomicity.h \
  /usr/include/x86_64-linux-gnu/c++/15/bits/gthr.h \
  /usr/include/x86_64-linux-gnu/c++/15/bits/gthr-default.h \
  /usr/include/pthread.h /usr/include/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/time64.h \
  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endianness.h \
  /usr/include/x86_64-linux-gnu/bits/sched.h \
  /usr/include/linux/sched/types.h /usr/include/linux/types.h \
  /usr/include/x86_64-linux-gnu/asm/types.h \
@@ -87,37 +114,29 @@ test/CMakeFiles/test_vector.dir/test_vector.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
  /usr/include/x86_64-linux-gnu/c++/15/bits/atomic_word.h \
  /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+ /usr/include/c++/15/ext/concurrence.h /usr/include/c++/15/exception \
+ /usr/include/c++/15/bits/exception_ptr.h \
+ /usr/include/c++/15/bits/cxxabi_init_exception.h \
+ /usr/include/c++/15/bits/nested_exception.h \
+ /usr/include/c++/15/bits/shared_ptr_atomic.h \
+ /usr/include/c++/15/bits/atomic_base.h \
+ /usr/include/c++/15/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/15/backward/auto_ptr.h \
+ /usr/include/c++/15/pstl/glue_memory_defs.h \
+ /usr/include/c++/15/pstl/execution_defs.h /usr/include/c++/15/ostream \
+ /usr/include/c++/15/bits/ostream.h /usr/include/c++/15/ios \
+ /usr/include/c++/15/bits/char_traits.h \
+ /usr/include/c++/15/bits/localefwd.h \
+ /usr/include/x86_64-linux-gnu/c++/15/bits/c++locale.h \
+ /usr/include/c++/15/clocale /usr/include/locale.h \
+ /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/15/cctype \
+ /usr/include/ctype.h /usr/include/c++/15/bits/ios_base.h \
  /usr/include/c++/15/bits/locale_classes.h /usr/include/c++/15/string \
- /usr/include/c++/15/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/15/bits/c++allocator.h \
- /usr/include/c++/15/bits/new_allocator.h \
- /usr/include/c++/15/bits/functexcept.h \
- /usr/include/c++/15/bits/cpp_type_traits.h \
  /usr/include/c++/15/bits/ostream_insert.h \
  /usr/include/c++/15/bits/cxxabi_forced.h \
- /usr/include/c++/15/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/15/bits/concept_check.h \
- /usr/include/c++/15/debug/assertions.h \
- /usr/include/c++/15/bits/stl_iterator_base_types.h \
- /usr/include/c++/15/bits/stl_iterator.h \
- /usr/include/c++/15/ext/type_traits.h \
- /usr/include/c++/15/bits/ptr_traits.h \
- /usr/include/c++/15/bits/stl_function.h \
- /usr/include/c++/15/backward/binders.h \
- /usr/include/c++/15/ext/numeric_traits.h \
- /usr/include/c++/15/bits/stl_algobase.h \
- /usr/include/c++/15/bits/stl_pair.h /usr/include/c++/15/bits/utility.h \
- /usr/include/c++/15/debug/debug.h \
- /usr/include/c++/15/bits/predefined_ops.h /usr/include/c++/15/bit \
- /usr/include/c++/15/concepts /usr/include/c++/15/bits/refwrap.h \
- /usr/include/c++/15/bits/invoke.h \
  /usr/include/c++/15/bits/range_access.h \
  /usr/include/c++/15/initializer_list \
- /usr/include/c++/15/bits/basic_string.h \
- /usr/include/c++/15/ext/alloc_traits.h \
- /usr/include/c++/15/bits/alloc_traits.h \
- /usr/include/c++/15/bits/stl_construct.h /usr/include/c++/15/string_view \
- /usr/include/c++/15/bits/functional_hash.h \
+ /usr/include/c++/15/bits/basic_string.h /usr/include/c++/15/string_view \
  /usr/include/c++/15/bits/string_view.tcc \
  /usr/include/c++/15/ext/string_conversions.h /usr/include/c++/15/cstdlib \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
@@ -143,9 +162,8 @@ test/CMakeFiles/test_vector.dir/test_vector.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/15/bits/charconv.h \
  /usr/include/c++/15/bits/basic_string.tcc \
- /usr/include/c++/15/bits/memory_resource.h /usr/include/c++/15/cstddef \
- /usr/include/c++/15/bits/uses_allocator.h \
- /usr/include/c++/15/bits/uses_allocator_args.h /usr/include/c++/15/tuple \
+ /usr/include/c++/15/bits/memory_resource.h \
+ /usr/include/c++/15/bits/uses_allocator_args.h \
  /usr/include/c++/15/bits/locale_classes.tcc \
  /usr/include/c++/15/system_error \
  /usr/include/x86_64-linux-gnu/c++/15/bits/error_constants.h \
@@ -159,5 +177,107 @@ test/CMakeFiles/test_vector.dir/test_vector.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/15/bits/ctype_inline.h \
  /usr/include/c++/15/bits/locale_facets.tcc \
  /usr/include/c++/15/bits/basic_ios.tcc \
- /usr/include/c++/15/bits/ostream.tcc /usr/include/c++/15/istream \
- /usr/include/c++/15/bits/istream.tcc
+ /usr/include/c++/15/bits/ostream.tcc /usr/include/c++/15/vector \
+ /usr/include/c++/15/bits/stl_vector.h \
+ /usr/include/c++/15/bits/stl_bvector.h \
+ /usr/include/c++/15/bits/vector.tcc \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/gtest-assertion-result.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h \
+ /usr/include/c++/15/sstream /usr/include/c++/15/istream \
+ /usr/include/c++/15/bits/istream.tcc \
+ /usr/include/c++/15/bits/sstream.tcc \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-port.h \
+ /usr/include/c++/15/stdlib.h /usr/include/string.h \
+ /usr/include/strings.h /usr/include/c++/15/cstdint \
+ /usr/lib/gcc/x86_64-linux-gnu/15/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
+ /usr/include/c++/15/iostream /usr/include/c++/15/locale \
+ /usr/include/c++/15/bits/locale_facets_nonio.h /usr/include/c++/15/ctime \
+ /usr/include/x86_64-linux-gnu/c++/15/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/15/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/15/bits/codecvt.h \
+ /usr/include/c++/15/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/15/bits/locale_conv.h \
+ /usr/include/x86_64-linux-gnu/sys/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
+ /usr/include/x86_64-linux-gnu/bits/statx.h /usr/include/linux/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/internal/custom/gtest-port.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-port-arch.h \
+ /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+ /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+ /usr/include/linux/close_range.h /usr/include/regex.h \
+ /usr/include/c++/15/condition_variable /usr/include/c++/15/bits/chrono.h \
+ /usr/include/c++/15/ratio /usr/include/c++/15/bits/parse_numbers.h \
+ /usr/include/c++/15/bits/std_mutex.h \
+ /usr/include/c++/15/bits/unique_lock.h /usr/include/c++/15/mutex \
+ /usr/include/c++/15/any /usr/include/c++/15/optional \
+ /usr/include/c++/15/bits/enable_special_members.h \
+ /usr/include/c++/15/variant /usr/include/c++/15/bits/monostate.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/gtest-death-test.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-death-test-internal.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/gtest-matchers.h \
+ /usr/include/c++/15/atomic \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/gtest-printers.h \
+ /usr/include/c++/15/functional /usr/include/c++/15/bits/std_function.h \
+ /usr/include/c++/15/unordered_map \
+ /usr/include/c++/15/bits/unordered_map.h \
+ /usr/include/c++/15/bits/hashtable.h \
+ /usr/include/c++/15/bits/hashtable_policy.h \
+ /usr/include/c++/15/bits/node_handle.h \
+ /usr/include/c++/15/bits/erase_if.h /usr/include/c++/15/array \
+ /usr/include/c++/15/compare /usr/include/c++/15/utility \
+ /usr/include/c++/15/bits/stl_relops.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h \
+ /usr/include/x86_64-linux-gnu/sys/wait.h /usr/include/signal.h \
+ /usr/include/x86_64-linux-gnu/bits/signum-generic.h \
+ /usr/include/x86_64-linux-gnu/bits/signum-arch.h \
+ /usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
+ /usr/include/x86_64-linux-gnu/bits/siginfo-arch.h \
+ /usr/include/x86_64-linux-gnu/bits/siginfo-consts.h \
+ /usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h \
+ /usr/include/x86_64-linux-gnu/bits/types/sigval_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
+ /usr/include/x86_64-linux-gnu/bits/sigevent-consts.h \
+ /usr/include/x86_64-linux-gnu/bits/sigaction.h \
+ /usr/include/x86_64-linux-gnu/bits/sigcontext.h \
+ /usr/include/x86_64-linux-gnu/bits/types/stack_t.h \
+ /usr/include/x86_64-linux-gnu/sys/ucontext.h \
+ /usr/include/x86_64-linux-gnu/bits/sigstack.h \
+ /usr/include/x86_64-linux-gnu/bits/sigstksz.h \
+ /usr/include/x86_64-linux-gnu/bits/ss_flags.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h \
+ /usr/include/x86_64-linux-gnu/bits/sigthread.h \
+ /usr/include/x86_64-linux-gnu/bits/signal_ext.h \
+ /usr/include/x86_64-linux-gnu/bits/types/idtype_t.h \
+ /usr/lib/gcc/x86_64-linux-gnu/15/include/float.h \
+ /usr/include/c++/15/iomanip /usr/include/c++/15/bits/quoted_string.h \
+ /usr/include/c++/15/map /usr/include/c++/15/bits/stl_tree.h \
+ /usr/include/c++/15/bits/stl_map.h \
+ /usr/include/c++/15/bits/stl_multimap.h /usr/include/c++/15/set \
+ /usr/include/c++/15/bits/stl_set.h \
+ /usr/include/c++/15/bits/stl_multiset.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-filepath.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-string.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h \
+ /usr/include/c++/15/cxxabi.h \
+ /usr/include/x86_64-linux-gnu/c++/15/bits/cxxabi_tweaks.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/internal/custom/gtest-printers.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/gtest-param-test.h \
+ /usr/include/c++/15/iterator /usr/include/c++/15/bits/stream_iterator.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h \
+ /usr/include/c++/15/cassert /usr/include/assert.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/gtest-test-part.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/gtest-typed-test.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/gtest_pred_impl.h \
+ /home/hiba/projet_C++/build/_deps/googletest-src/googletest/include/gtest/gtest_prod.h

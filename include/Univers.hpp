@@ -68,14 +68,19 @@ public:
      * @brief Getter du nombre de particules
      * @return Nombre de particules
      */
-    int getNbParticule() const;
+    int getNombreParticules() const;
 
     /**
      * @brief Getter de la liste des particules
      * @return Liste de particules
      */
-    std::vector<Particule> getParticuleList() const;
+    std::vector<Particule> getParticules() const;
 
+    Univers& setDimension(int dim) ;
+
+    Univers& setNombreParticules(int n) ;
+
+    Univers& setParticules(const std::vector<Particule>& particules);
 };
 
 #endif

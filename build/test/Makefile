@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/hiba/projet_C++/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
@@ -84,6 +94,51 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -144,6 +199,44 @@ test_univers/fast:
 	cd /home/hiba/projet_C++/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_univers.dir/build.make test/CMakeFiles/test_univers.dir/build
 .PHONY : test_univers/fast
 
+# Convenience name for target.
+test/CMakeFiles/test_particule.dir/rule:
+	cd /home/hiba/projet_C++/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_particule.dir/rule
+.PHONY : test/CMakeFiles/test_particule.dir/rule
+
+# Convenience name for target.
+test_particule: test/CMakeFiles/test_particule.dir/rule
+.PHONY : test_particule
+
+# fast build rule for target.
+test_particule/fast:
+	cd /home/hiba/projet_C++/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_particule.dir/build.make test/CMakeFiles/test_particule.dir/build
+.PHONY : test_particule/fast
+
+test_particule.o: test_particule.cpp.o
+.PHONY : test_particule.o
+
+# target to build an object file
+test_particule.cpp.o:
+	cd /home/hiba/projet_C++/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_particule.dir/build.make test/CMakeFiles/test_particule.dir/test_particule.cpp.o
+.PHONY : test_particule.cpp.o
+
+test_particule.i: test_particule.cpp.i
+.PHONY : test_particule.i
+
+# target to preprocess a source file
+test_particule.cpp.i:
+	cd /home/hiba/projet_C++/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_particule.dir/build.make test/CMakeFiles/test_particule.dir/test_particule.cpp.i
+.PHONY : test_particule.cpp.i
+
+test_particule.s: test_particule.cpp.s
+.PHONY : test_particule.s
+
+# target to generate assembly for a file
+test_particule.cpp.s:
+	cd /home/hiba/projet_C++/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_particule.dir/build.make test/CMakeFiles/test_particule.dir/test_particule.cpp.s
+.PHONY : test_particule.cpp.s
+
 test_univers.o: test_univers.cpp.o
 .PHONY : test_univers.o
 
@@ -199,9 +292,18 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test"
+	@echo "... test_particule"
 	@echo "... test_univers"
 	@echo "... test_vector"
+	@echo "... test_particule.o"
+	@echo "... test_particule.i"
+	@echo "... test_particule.s"
 	@echo "... test_univers.o"
 	@echo "... test_univers.i"
 	@echo "... test_univers.s"

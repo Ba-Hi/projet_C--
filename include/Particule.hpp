@@ -76,7 +76,7 @@ public:
      * @brief Retourne la masse de la particule.
      * @return La masse.
      */
-    double getMasse() const;
+    const double getMasse() const;
 
     /**
      * @brief Modifie la force appliquée sur la particule.
@@ -103,7 +103,7 @@ public:
      * @brief Retourne la catégorie de la particule.
      * @return La catégorie.
      */
-    int getType() const;
+    const int getType() const;
 };
 
 /**

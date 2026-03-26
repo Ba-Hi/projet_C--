@@ -48,7 +48,7 @@ Particule& Particule::setMasse(double newMasse) {
     return *this;
 }
 
-double Particule::getMasse() const {
+const double Particule::getMasse() const {
     return masse;
 }
 
@@ -66,7 +66,7 @@ Particule& Particule::setType(int newType) {
     return *this;
 }
 
-int Particule::getType() const {
+const int Particule::getType() const {
     return categorie;
 }
 

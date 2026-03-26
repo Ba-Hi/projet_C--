@@ -4,6 +4,8 @@ test_univers: \
   /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o \
   CMakeFiles/test_univers.dir/test_univers.cpp.o \
   ../src/libparticules.a \
+  ../lib/libgtest_main.a \
+  ../lib/libgtest.a \
   /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libm.so \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libm.so \
@@ -41,6 +43,10 @@ test_univers: \
 CMakeFiles/test_univers.dir/test_univers.cpp.o:
 
 ../src/libparticules.a:
+
+../lib/libgtest_main.a:
+
+../lib/libgtest.a:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so:
 

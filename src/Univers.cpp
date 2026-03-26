@@ -14,20 +14,23 @@ int Univers::getNombreParticules() const {
     return n_particules;
 }
 
-const std::vector<Particule>& Univers::getParticules() const {
+std::vector<Particule> Univers::getParticules() const {
     return particuleList;
 }
 
-void Univers::setDimension(int dim) {
+Univers& Univers::setDimension(int dim) {
     dimension = dim;
+    return *this;
 }
 
-void Univers::setNombreParticules(int n) {
+Univers& Univers::setNombreParticules(int n) {
     n_particules = n;
+    return *this;
 }
 
-void Univers::setParticules(const std::vector<Particule>& particules) {
+Univers& Univers::setParticules(const std::vector<Particule>& particules) {
     particuleList = particules;
+    return *this;
 }
 
 void Univers::ajouterParticule(const Particule& p) {
@@ -85,17 +88,5 @@ void Univers::avancerParticules(double tEnd, double dt) {
         /*const Vector& pos0 = particuleList[0].getPosition();
         std::cout << "t=" << t << " pos0=(" << pos0.x() << "," << pos0.y() << ")\n";*/
     }
-}
-
-int Univers::getDimension() const{
-    return dimension;
-}
-
-int Univers::getNbParticule() const{
-    return n_particules;
-}
-
-std::vector<Particule> Univers::getParticuleList() const {
-    return particuleList;
 }
 
