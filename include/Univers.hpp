@@ -75,7 +75,7 @@ public:
      * @brief Getter de la liste des particules
      * @return Liste de particules
      */
-    std::vector<Particule> getParticules() const;
+    const std::vector<Particule>& getParticules() const;
 
     Univers& setDimension(int dim) ;
 

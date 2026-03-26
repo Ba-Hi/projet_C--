@@ -14,7 +14,7 @@ int Univers::getNombreParticules() const {
     return n_particules;
 }
 
-std::vector<Particule> Univers::getParticules() const {
+const std::vector<Particule>& Univers::getParticules() const {
     return particuleList;
 }
 
