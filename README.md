@@ -1,69 +1,62 @@
- valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./euler
+# Simulation de Particules - Projet C++
 
- valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./memoire 
+## Description
+Ce projet implémente un système de simulation de particules en 3D utilisant l'algorithme d'intégration de **Störmer-Verlet**. Il permet de gérer des univers de particules, de calculer des forces gravitationnelles ou d'interaction, et d'optimiser les performances via des structures de données comme les grilles de cellules (TP4).
 
- g++ -g -Wall -Wextra -Werror trace.cxx -o memoire
+## Structure du Projet
+- `include/` : Fichiers d'en-tête (.hpp)
+- `src/` : Code source (.cpp)
+- `test/` : Tests unitaires utilisant GoogleTest
+- `demo/` : Exemples d'utilisation de la bibliothèque
 
- g++ -pg -g -Wall -Wextra -Werror  Particule.cxx -o memoire ( all warnings being treated as errors)
+## Analyse UML (Concepts Métier)
 
+### Cas d'Utilisation
+L'utilisateur peut configurer l'univers, ajouter des particules et lancer une simulation temporelle. Les données peuvent être chargées ou sauvegardées via le système de fichiers.
 
- # My CMake Project
+### Modèle du Domaine (Classes d'analyse)
+- **Univers** : Gère la collection globale et l'évolution temporelle.
+- **Particule** : Entité physique définie par sa masse et sa cinématique.
+- **Vector** : Outil mathématique pour les calculs en 3D.
+- **Cellule** : Optimisation spatiale pour le calcul des interactions locales.
 
-## Overview
-This project is a simple CMake-based application that demonstrates the use of CMake for building C++ projects. It includes a main application file, a header file for function declarations, and a configuration file for tests.
+## Compilation et Installation
 
-## Project Structure
+### Prérequis
+- CMake (>= 3.16)
+- Compilateur supportant le C++17 (GCC, Clang)
+- Doxygen (pour la documentation)
+
+### Instructions de build
+```bash
+# 1. Créer le répertoire de build
+mkdir build && cd build
+
+# 2. Configurer le projet avec CMake
+cmake ..
+
+# 3. Compiler
+make
 ```
-my-cmake-project
-├── src
-│   └── main.cpp          # Entry point of the application
-├── include
-│   └── my_header.h       # Header file with function declarations
-├── tests
-│   └── CMakeLists.txt    # CMake configuration for tests
-├── CMakeLists.txt        # Main CMake configuration file
-└── README.md             # Project documentation
+
+
+### Utilisation des Tests
+
+Le projet utilise GoogleTest. Pour lancer les tests après la compilation :
+
+```bash
+
+ctest
+# Ou lancer les binaires directement
+./test/test_univers
+./test/test_particule
 ```
 
-## Building the Project
-To build the project, follow these steps:
+### Documentation
+Pour générer la documentation HTML via Doxygen :
 
-1. Ensure you have CMake installed on your system.
-2. Open a terminal and navigate to the project directory.
-3. Create a build directory:
-   ```
-   mkdir build
-   cd build
-   ```
-4. Run CMake to configure the project:
-   ```
-   cmake ..
-   ```
-5. Build the project:
-   ```
-   cmake --build .
-   ```
+```bash
 
-## Running the Application
-After building the project, you can run the application by executing the generated binary located in the `build` directory.
+doxygen Doxyfile
 
-## Running Tests
-To run the tests, ensure that the test configuration in `tests/CMakeLists.txt` is set up correctly, then follow similar steps to build the tests in a separate build directory.
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
-
-
-
-calcul de force i, j
-hiba@hiba:~/projet_C++/build$ ./test/test_univers 
-Univers créé avec 32768 particules.
-Temps SANS reserve: 0.011046 s
-Temps AVEC reserve: 0.0107367 s
-
-
-i, j allant de i+1
-Univers créé avec 32768 particules.
-Temps SANS reserve: 0.0111301 s
-Temps AVEC reserve: 0.00398719 s
+```

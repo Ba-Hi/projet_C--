@@ -10,6 +10,9 @@ target_link_libraries(test_univers particules gtest_main)
 add_executable(test_particule test_particule.cpp)
 target_link_libraries(test_particule particules gtest_main)
 
+add_executable(test_systeme_solaire test_systeme_solaire.cpp)
+target_link_libraries(test_systeme_solaire particules)
+
 include(GoogleTest)
 gtest_discover_tests(test_particule)
 gtest_discover_tests(test_vector)

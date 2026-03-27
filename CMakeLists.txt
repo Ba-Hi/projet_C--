@@ -22,5 +22,3 @@ enable_testing()
 add_subdirectory(src)
 add_subdirectory(test)
 
-add_executable(programme main.cpp)
-target_link_libraries(programme particules)

@@ -132,7 +132,7 @@ void algo_stromer_verlet(std::vector<Particule>& particleList,
         forces = initialiser(particleList);
         for (size_t i = 0; i < particleList.size(); ++i) {
             Particule& p = particleList[i];
-            Vector newVel = p.getVitesse() + (forces[i] + forces_fold[i]) * (0.5 / p.getMasse());
+            Vector newVel = p.getVitesse() + (forces[i] + forces_fold[i]) * ((0.5 * dt) / p.getMasse());
             p.setVitesse(newVel);
         }
         // const Vector& pos0 = particleList[0].getPosition();
