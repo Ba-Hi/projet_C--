@@ -17,13 +17,12 @@
 class Cellule {
 
 private :
+  double tailleCellule; ///< Taille de la cellule
   int i; ///< Coordonnée i de la cellule dans la grille
   int j; ///< Coordonnée j de la cellule dans la grille
   int k; ///< Coordonnée k de la cellule dans la grille
-  double tailleCellule; ///< Taille de la cellule
-  std::vector<Particule> particuleList; ///< Liste des particules contenues dans la cellule
+  std::vector<Particule*> particuleList; ///< Liste des particules contenues dans la cellule
   std::vector<Cellule*> voisines; ///< Liste des pointeurs vers les cellules voisines
-  Vector centreCellule; ///< Position du centre de la cellule dans l'espace
 
 public :
 
@@ -33,10 +32,15 @@ public :
      * @param tailleCellule Taille de la cellule
      * @param i Coordonnée i
      * @param j Coordonnée j
-     * @param k Coordonnée k
-     * @param particuleListInitiale Liste initiale de particules
+      * @param k Coordonnée k
      */
-    Cellule(const double tailleCellule, int i, int j, int k, std::vector<Particule> particuleListInitiale);
+    Cellule(const double tailleCellule, int i, int j, int k);
+
+    /***
+     * @brief Getter du centre de la cellule
+     * @return Vecteur représentant la position du centre de la cellule
+     */
+    Vector centreCellule() const;
 
     /**
      * @brief Retourne la taille de la cellule
@@ -48,7 +52,7 @@ public :
      * @brief Accède à la liste des particules
      * @return Référence vers le vecteur de particules
      */
-    std::vector<Particule>& getParticuleList();
+    std::vector<Particule*>& getParticuleList();
 
     /**
      * @brief Accède à la liste des cellules voisines
@@ -68,7 +72,7 @@ public :
      * @param listPart Nouvelle liste de particules
      * @return Référence vers la cellule courante
      */
-    Cellule& setListParticule(const std::vector<Particule>& listPart);
+    Cellule& setListParticule(const std::vector<Particule*>& listPart);
 
     /**
      * @brief Calcule la position de la cellule dans l'espace
@@ -86,7 +90,7 @@ public :
      * @brief Ajoute une particule à la cellule
      * @param p Particule à ajouter
      */
-    void ajouterParticule(const Particule& p);
+    void ajouterParticule(Particule* p);
 
     /**
      * @brief Vide la liste des particules de la cellule
