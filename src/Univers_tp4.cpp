@@ -124,7 +124,7 @@ void Univers_tp4::calculerForces(double epsilon, double sigma) {
             for (Particule* pi_ptr : ci.getParticuleList()) {
                 Particule& pi = *pi_ptr;
                 double distance_pi_centre_cj = (pi.getPosition() - cj->centreCellule()).norm();
-                if (distance_pi_centre_cj > r_cut)
+                if (distance_pi_centre_cj > r_cut + sqrt(dimension)*r_cut/2)
                     continue; // on ignore cette cellule voisine, elle est trop loin
             for (Particule* pj_ptr : cj->getParticuleList()) {
                 Particule& pj = *pj_ptr;
@@ -145,7 +145,6 @@ void Univers_tp4::calculerForces(double epsilon, double sigma) {
             }
         }
     }
-    mettreAJourCellules();
 }
     
 
@@ -187,8 +186,12 @@ void Univers_tp4::avancerParticules(double tEnd, double dt) {
         forces[i] = particuleList[i].getForce();
 
     double t = 0.0;
+    int step = 0;
+    const int save_every = 200;
+
     while (t < tEnd) {
         t += dt;
+        step++;
         std::vector<Vector> forces_old = forces;
 
         // Mise à jour des positions (Störmer-Verlet)
@@ -214,6 +217,14 @@ void Univers_tp4::avancerParticules(double tEnd, double dt) {
                           + (forces[i] + forces_old[i]) * (0.5*dt / p.getMasse());
             p.setVitesse(newVel);
         }
+
+        if (step % save_every == 0) {
+            saveCSV(particuleList, csvFile, t);
+            std::cout << "t = " << t << " / " << tEnd
+                      << "  (" << (double)(100*t/tEnd) << "%)\n"
+                      << std::flush;
+        }
+
         saveCSV(particuleList, csvFile, t);
     }
 }

@@ -19,6 +19,9 @@ target_link_libraries(test_cellule particules gtest_main)
 add_executable(test_univers_tp4 test_univers_tp4.cpp)
 target_link_libraries(test_univers_tp4 particules gtest_main)
 
+add_executable(test_collision test_collision.cpp)
+target_link_libraries(test_collision particules)
+
 
 include(GoogleTest)
 gtest_discover_tests(test_particule)
