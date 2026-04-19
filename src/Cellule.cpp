@@ -1,7 +1,7 @@
 #include "Cellule.hpp"
 
 Cellule::Cellule(const double tailleCellule,int i, int j, int k, std::vector<Particule> particuleListInitiale):
-tailleCellule(tailleCellule), i(i), j(j), k(k), particuleList(particuleListInitiale)
+tailleCellule(tailleCellule), i(i), j(j), k(k), particuleList(particuleListInitiale), centreCellule(i*tailleCellule + tailleCellule/2, j*tailleCellule + tailleCellule/2, k*tailleCellule + tailleCellule/2)
 {}
 
 double Cellule::getTailleCellule() const{
@@ -43,4 +43,8 @@ void Cellule::ajouterParticule(const Particule& p) {
 std::vector<Cellule*>& Cellule::getVoisines(){
     return voisines;
 };
+
+void Cellule::viderParticules() {
+    particuleList.clear();
+}
 

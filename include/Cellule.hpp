@@ -23,6 +23,7 @@ private :
   double tailleCellule; ///< Taille de la cellule
   std::vector<Particule> particuleList; ///< Liste des particules contenues dans la cellule
   std::vector<Cellule*> voisines; ///< Liste des pointeurs vers les cellules voisines
+  Vector centreCellule; ///< Position du centre de la cellule dans l'espace
 
 public :
 
@@ -86,6 +87,11 @@ public :
      * @param p Particule à ajouter
      */
     void ajouterParticule(const Particule& p);
+
+    /**
+     * @brief Vide la liste des particules de la cellule
+     */
+    void viderParticules();
 };
 
 #endif

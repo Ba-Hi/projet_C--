@@ -112,6 +112,7 @@ std::vector<Vector> initialiser(std::vector<Particule>& particleList) {
     return forces;
 }
 
+
 void algo_stromer_verlet(std::vector<Particule>& particleList,
                          std::vector<Vector> forces_fold,
                          double tEnd,

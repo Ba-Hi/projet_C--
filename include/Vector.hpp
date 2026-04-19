@@ -156,6 +156,15 @@ public :
      * @warning Division par zéro
      */
     friend Vector operator/(double scalar, const Vector& v);
+
+
+
+    /**
+     * @brief Calcule la distance entre deux vecteurs
+     * @param autre Le vecteur avec lequel calculer la distance
+     * @return La distance euclidienne entre les deux vecteurs
+     */
+    double distance(const Vector& autre) const;
 };
 
 

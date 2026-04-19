@@ -90,4 +90,11 @@ Vector& Vector::operator/=(double scalar){
 
 bool Vector::operator==(const Vector& v) const{
     return x_ == v.x_ && y_ == v.y_ && z_ == v.z_;
+}   
+
+double Vector::distance(const Vector& autre) const {
+    double dx = x_ - autre.x();
+    double dy = y_ - autre.y();
+    double dz = z_ - autre.z();
+    return std::sqrt(dx * dx + dy * dy + dz * dz);
 }
