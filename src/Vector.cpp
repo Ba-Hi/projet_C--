@@ -3,8 +3,8 @@
 #include <cmath>
 
 
-Vector::Vector(double xinit, double y_init, double z_init) :
-        x_(xinit), y_(y_init), z_(z_init) {}
+Vector::Vector(double x_init, double y_init, double z_init) :
+        x_(x_init), y_(y_init), z_(z_init) {}
 
 double Vector::x() const { return x_; }
 double Vector::y() const { return y_; }

@@ -22,10 +22,10 @@ public :
      * @brief Constructeur de Vector : construit un vecteur avec ses coordonées initiales
      * 
      * @param x_init Position x initiale
-     * @param y_iniy Position y initiale
-     * @param z_init Position z initiale
+     * @param y_init Position y initiale (défaut 0.0 pour 1D)
+     * @param z_init Position z initiale (défaut 0.0 pour 2D)
      */
-    Vector(double x_init, double y_iniy, double z_init);
+    Vector(double x_init, double y_init = 0.0, double z_init = 0.0);
 
     /**
      * @brief Getter de x

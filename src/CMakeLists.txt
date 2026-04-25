@@ -5,8 +5,9 @@ add_library(particules
     Vector.cpp
     Particule.cpp
     Univers.cpp
+    UniversGravitationnel.cpp
+    UniversLJ.cpp
     Cellule.cpp
-    Univers_tp4.cpp
 )
 
 

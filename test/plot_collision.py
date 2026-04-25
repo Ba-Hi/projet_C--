@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
-data = np.loadtxt("../build/output_tp4.csv", skiprows=1)
+data = np.loadtxt("./output_tp4.csv", skiprows=1)
 n_particules = 8000
 n_rect = 6400  # catégorie 0
 n_sq   = 1600  # catégorie 1

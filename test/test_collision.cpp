@@ -1,16 +1,16 @@
 #include <iostream>
 #include <cmath>
-#include "Univers_tp4.hpp"
+#include "UniversLJ.hpp"
 #include "Particule.hpp"
 #include "Vector.hpp"
 
 int main() {
 
     const double sigma   = 1.0;
-    const double epsilon = 5.0;
+    const double epsilon = 1.0;
     const double r_cut   = 2.5 * sigma;
     const double dt      = 0.00005;
-    const double tEnd    = 0.5;
+    const double tEnd    = 19.5;
     const double m       = 1.0;
 
     // Distance inter-particules
@@ -19,9 +19,10 @@ int main() {
     // Rectangle : 160 colonnes * d de large, 40 lignes * d de haut
     // Carré     : 40 colonnes * d de large, 40 lignes * d de haut
     const double Lx = 250.0;
-    const double Ly = 40.0;
 
-    Univers_tp4 u(2, Vector(Lx, Ly, 0.0), r_cut, epsilon, sigma);
+    const double Ly = 150.0;
+
+    UniversLJ u(2, Vector(Lx, Ly, 0.0), r_cut, epsilon, sigma);
 
     // Rectangle 160×40
     double rect_x0 = (Lx - 160 * d) / 2.0; // centré en x

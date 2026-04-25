@@ -2,7 +2,7 @@
 #include <vector>
 #include "Particule.hpp"
 #include "Vector.hpp"
-#include "Univers.hpp"
+#include "UniversGravitationnel.hpp"
 #include <cstdlib>
 
 #include <cmath>
@@ -10,21 +10,21 @@
 #include <chrono> // Pour la mesure du temps
 
 TEST(UniversTest, CreationEmptyUnivers) {
-    Univers u(3);
+    UniversGravitationnel u(3);
     EXPECT_EQ(u.getDimension(), 3);
     EXPECT_EQ(u.getNombreParticules(), 0);
     EXPECT_TRUE(u.getParticules().empty());
 }
 
 TEST(UniversTest, CreationUnivers) {
-    Univers u(3, pow(2, 15));
+    UniversGravitationnel u(3, pow(2, 15));
     EXPECT_EQ(u.getNombreParticules(), 0);
     EXPECT_GE(u.getParticules().capacity(), pow(2, 15));
 }
 
 // Ajout de particules et vérification du nombre de particules
 TEST(UniversTest, AddOneParticule) {
-    Univers u(3);
+    UniversGravitationnel u(3);
     Particule p(Vector(1,2,3), Vector(0,0,0), 1.0, 0, 0, Vector(0,0,0));
     u.ajouterParticule(p);
     EXPECT_EQ(u.getNombreParticules(), 1);
@@ -32,14 +32,14 @@ TEST(UniversTest, AddOneParticule) {
 }
 
 TEST(UniversTest, AddMultipleParticules) {
-    Univers u(3);
+    UniversGravitationnel u(3);
     for (int i = 0; i < 100; ++i)
         u.ajouterParticule(Particule(Vector(i,0,0), Vector(0,0,0), 1.0, i, 0, Vector(0,0,0)));
     EXPECT_EQ(u.getNombreParticules(), 100);
 }
 
 TEST(UniversTest, CorrectAddParticulesPosition) {
-    Univers u(3);
+    UniversGravitationnel u(3);
     Particule p(Vector(1,2,3), Vector(0,0,0), 1.0, 0, 0, Vector(0,0,0));
     u.ajouterParticule(p);
     EXPECT_DOUBLE_EQ(u.getParticules()[0].getPosition().x(), 1.0);
@@ -53,14 +53,14 @@ TEST(UniversTest, ReserveIsFaster) {
     int n = 32768;
 
     auto t0 = std::chrono::high_resolution_clock::now();
-    Univers u1(3, 0);
+    UniversGravitationnel u1(3, 0);
     for (int i = 0; i < n; ++i)
         u1.ajouterParticule(Particule(Vector(0,0,0), Vector(0,0,0), 1.0, i, 0, Vector(0,0,0)));
     double sans = std::chrono::duration<double>(
         std::chrono::high_resolution_clock::now() - t0).count();
 
     auto t2 = std::chrono::high_resolution_clock::now();
-    Univers u2(3, n);
+    UniversGravitationnel u2(3, n);
     for (int i = 0; i < n; ++i)
         u2.ajouterParticule(Particule(Vector(0,0,0), Vector(0,0,0), 1.0, i, 0, Vector(0,0,0)));
     double avec = std::chrono::duration<double>(
@@ -73,12 +73,12 @@ TEST(UniversTest, ReserveIsFaster) {
 // Forces test
 
 TEST(UniversTest, ForcesEmptyUnivers) {
-    Univers u(3);
+    UniversGravitationnel u(3);
     EXPECT_TRUE(u.calculerForces().empty());
 }
 
 TEST(UniversTest, ForcesOneParticule) {
-    Univers u(3);
+    UniversGravitationnel u(3);
     Particule p(Vector(0,0,0), Vector(0,0,0), 1.0, 0, 0, Vector(0,0,0));
     u.ajouterParticule(p);
     std::vector<Vector> forces = u.calculerForces();
@@ -89,7 +89,7 @@ TEST(UniversTest, ForcesOneParticule) {
 }
 
 TEST(UniversTest, ForcesTwoParticules) {
-    Univers u(3);
+    UniversGravitationnel u(3);
     u.ajouterParticule(Particule(Vector(0,0,0), Vector(0,0,0), 1.0, 0, 0, Vector(0,0,0)));
     u.ajouterParticule(Particule(Vector(1,0,0), Vector(0,0,0), 1.0, 1, 0, Vector(0,0,0)));
     auto forces = u.calculerForces();
@@ -101,7 +101,7 @@ TEST(UniversTest, ForcesTwoParticules) {
 }
 
 TEST(UniversTest, ForceSymetry) {
-    Univers u(3);
+    UniversGravitationnel u(3);
     u.ajouterParticule(Particule(Vector(0,0,0), Vector(0,0,0), 1.0, 0, 0, Vector(0,0,0)));
     u.ajouterParticule(Particule(Vector(1,0,0), Vector(0,0,0), 1.0, 1, 0, Vector(0,0,0)));
     auto forces = u.calculerForces();
@@ -112,7 +112,7 @@ TEST(UniversTest, ForceSymetry) {
 }
 
 TEST(UniversTest, CorrectForceSize) {
-    Univers u(3);
+    UniversGravitationnel u(3);
     for (int i = 0; i < 5; ++i)
         u.ajouterParticule(Particule(Vector(i,0,0), Vector(0,0,0), 1.0, i, 0, Vector(0,0,0)));
     EXPECT_EQ(u.calculerForces().size(), 5);
@@ -121,12 +121,12 @@ TEST(UniversTest, CorrectForceSize) {
 // Avancer particules test
 
 TEST(UniversTest, AvancerParticulesEmptyUnivers) {
-    Univers u(3);
+    UniversGravitationnel u(3);
     EXPECT_NO_THROW(u.avancerParticules(1.0, 0.1));
 }
 
 TEST(UniversTest, AvancerPositionChange) {
-    Univers u(3);
+    UniversGravitationnel u(3);
     u.ajouterParticule(Particule(Vector(0,0,0), Vector(1,0,0), 1.0, 0, 0, Vector(0,0,0)));
     u.ajouterParticule(Particule(Vector(100,0,0), Vector(0,0,0), 1.0, 1, 0, Vector(0,0,0)));
 
@@ -139,28 +139,9 @@ TEST(UniversTest, AvancerPositionChange) {
 
 // SPEEEEEED
 
-TEST(UniversTest, ModifierVitesseUniforme) {
-    Univers u(3);
-    for (int i = 0; i < 5; ++i)
-        u.ajouterParticule(Particule(Vector(i,0,0), Vector(0,0,0), 1.0, i, 0, Vector(0,0,0)));
-
-    u.modifierVitesseUniforme(Vector(1, 2, 3));
-
-    for (const auto& p : u.getParticules()) {
-        EXPECT_DOUBLE_EQ(p.getVitesse().x(), 1.0);
-        EXPECT_DOUBLE_EQ(p.getVitesse().y(), 2.0);
-        EXPECT_DOUBLE_EQ(p.getVitesse().z(), 3.0);
-    }
-}
-
-TEST(UniversTest, ModifierVitesseUniformeVideSansCrash) {
-    Univers u(3);
-    EXPECT_NO_THROW(u.modifierVitesseUniforme(Vector(1, 2, 3)));
-}
-
 /*
 int main() {
-    Univers u(3, pow(2, 15));
+    UniversGravitationnel u(3, pow(2, 15));
 
     // creation de 2^15 particules uniformément distribuées sur le cube [0; 1] × [0; 1] × [0; 1].
     for (int i = 0; i < pow(2, 15); ++i) {
@@ -178,13 +159,13 @@ int main() {
         u.ajouterParticule(p);
     }
 
-    std::cout << "Univers créé avec " << u.getNombreParticules() << " particules." << std::endl;
+    std::cout << "UniversGravitationnel créé avec " << u.getNombreParticules() << " particules." << std::endl;
 
     int n = 32768; // 2^15
 
 
     // sans reserve
-    Univers u1(3, 0); 
+    UniversGravitationnel u1(3, 0); 
     auto start1 = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < n; ++i) {
         u1.ajouterParticule(Particule(Vector(0,0,0), Vector(0,0,0), 1.0, i, 0, Vector(0,0,0)));
@@ -195,7 +176,7 @@ int main() {
 
 
     // avec reserve
-    Univers u2(3, n); 
+    UniversGravitationnel u2(3, n); 
     auto start2 = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < n; ++i) {
         u2.ajouterParticule(Particule(Vector(0,0,0), Vector(0,0,0), 1.0, i, 0, Vector(0,0,0)));
@@ -209,7 +190,7 @@ int main() {
     for (int k = 1; k<8; k++) {
         auto start1 = std::chrono::high_resolution_clock::now();
         int n = pow(8, k);
-        Univers u(3, n);
+        UniversGravitationnel u(3, n);
         for (int i = 0; i < n; ++i) {
             u1.ajouterParticule(Particule(Vector(0,0,0), Vector(0,0,0), 1.0, i, 0, Vector(0,0,0)));
         }

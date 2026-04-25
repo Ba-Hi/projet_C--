@@ -72,7 +72,21 @@ public:
      */
     size_t getNbCellules() const;
 
+    /**
+     * @brief Fait évoluer les particules dans le temps avec l'algorithme Störmer-Verlet (version spécialisée pour LJ)
+     * @param tEnd Temps final de la simulation
+     * @param dt Pas de temps
+     */
+    void avancerParticules(double tEnd, double dt);
+
 private:
+    /**
+     * @brief Calcule les forces avec les paramètres epsilon et sigma donnés
+     * @param epsilon Paramètre epsilon
+     * @param sigma Paramètre sigma
+     */
+    void calculerForces(double epsilon, double sigma);
+
     /**
      * @brief Convertit les indices 3D en indice 1D pour l'accès au tableau
      * @param i Indice x

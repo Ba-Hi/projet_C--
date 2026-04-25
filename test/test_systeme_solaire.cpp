@@ -1,12 +1,12 @@
 #include <iostream>
 #include <cmath>
-#include "Univers.hpp"
+#include "UniversGravitationnel.hpp"
 #include "Particule.hpp"
 #include "Vector.hpp"
 
 int main() {
 
-    Univers u(3);
+    UniversGravitationnel u(3);
 
     double r_earth   = 1.0;
     double r_jupiter = 5.36;

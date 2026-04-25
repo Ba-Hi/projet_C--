@@ -1,13 +1,13 @@
-#include "Univers_tp4.hpp"
+#include "UniversLJ.hpp"
 #include <iostream>
 #include <cmath>
 #include "ExportCsv.hpp"
 
 
 
-Univers_tp4::Univers_tp4(const int& dimension, const Vector& l_d, const double& r_cut)
+UniversLJ::UniversLJ(const int& dimension, const Vector& l_d, const double& r_cut)
             : 
-            dimension(dimension),
+            Univers(dimension),
             l_d(l_d),
             r_cut(r_cut),
             epsilon(1.0),
@@ -15,16 +15,15 @@ Univers_tp4::Univers_tp4(const int& dimension, const Vector& l_d, const double& 
             nx((int)(l_d.x() / r_cut)),
             ny((int)(l_d.y() / r_cut)),
             nz(dimension == 3 ? (int)(l_d.z() / r_cut) : 1),
-            particuleList(),
             celluleList(){
     if (dimension > 3 || dimension < 1) {
         throw std::invalid_argument("La dimension est soit 1D, 2D, ou 3D.");
     }
 }
 
-Univers_tp4::Univers_tp4(const int& dimension, const Vector& l_d, const double& r_cut, double epsilon, double sigma)
+UniversLJ::UniversLJ(const int& dimension, const Vector& l_d, const double& r_cut, double epsilon, double sigma)
             : 
-            dimension(dimension),
+            Univers(dimension),
             l_d(l_d),
             r_cut(r_cut),
             epsilon(epsilon),
@@ -32,14 +31,13 @@ Univers_tp4::Univers_tp4(const int& dimension, const Vector& l_d, const double& 
             nx((int)(l_d.x() / r_cut)),
             ny((int)(l_d.y() / r_cut)),
             nz(dimension == 3 ? (int)(l_d.z() / r_cut) : 1),
-            particuleList(),
             celluleList(){
     if (dimension > 3 || dimension < 1) {
         throw std::invalid_argument("La dimension est soit 1D, 2D, ou 3D.");
     }
 }
 
-void Univers_tp4::initialiserCellules() {
+void UniversLJ::initialiserCellules() {
     celluleList.clear();
 
     int nbCellules = 0;
@@ -84,75 +82,112 @@ void Univers_tp4::initialiserCellules() {
     mettreAJourCellules();
 }
 
-int Univers_tp4::indice1D(int i, int j, int k){
+int UniversLJ::indice1D(int i, int j, int k){
     return i + nx * (j + ny * k);
 
 }
 
-Cellule& Univers_tp4::getCellule(int i, int j, int k) {
+Cellule& UniversLJ::getCellule(int i, int j, int k) {
     return celluleList[indice1D(i, j, k)];
 }
 
-size_t Univers_tp4::getNbCellules() const {
+size_t UniversLJ::getNbCellules() const {
     return celluleList.size();
 }
 
-std::vector<Vector> Univers_tp4::calculerForces() {
-    calculerForces(epsilon, sigma);
-    std::vector<Vector> forces;
-    forces.reserve(particuleList.size());
-    for (const auto& p : particuleList) {
-        forces.push_back(p.getForce());
+std::vector<Vector> UniversLJ::calculerForces() {
+    size_t n = particuleList.size();
+    std::vector<Vector> forces(n, Vector(0.0, 0.0, 0.0));
+
+    for (size_t i = 0; i < n; ++i) {
+        for (size_t j = i+1; j < n; ++j) {
+            const Vector& pi = particuleList[i].getPosition();
+            const Vector& pj = particuleList[j].getPosition();
+            Vector diff = pj - pi;
+            double dist = diff.norm();
+            if (dist == 0.0 || dist > r_cut) continue;
+
+            double r2inv = 1.0 / (dist * dist);
+            double s_r6 = r2inv * r2inv * r2inv * (sigma * sigma * sigma * sigma * sigma * sigma);
+            double coeff = (24.0 * epsilon / (dist * dist))
+                         * s_r6 * (1.0 - 2.0 * s_r6);
+            Vector forceIJ = diff * (-coeff);
+            forces[i] = forces[i] + forceIJ;
+            forces[j] = forces[j] - forceIJ;
+        }
     }
     return forces;
 }
 
-void Univers_tp4::calculerForces(double epsilon, double sigma) {
+
+void UniversLJ::calculerForces(double epsilon, double sigma) {
     for (Particule& p : particuleList)
         p.setForce(Vector(0.0, 0.0, 0.0));
 
     for (int i = 0; i < nx; i++)
     for (int j = 0; j < ny; j++)
     for (int k = 0; k < nz; k++) {
-        Cellule& ci = celluleList[indice1D(i,j,k)];
 
-        // On ne parcourt que les voisines "à droite" pour éviter double calcul
-        for (Cellule* cj : ci.getVoisines()) {
-            // Éviter de compter deux fois la même paire
-            if (cj < &ci) continue;
+        Cellule& ci = celluleList[indice1D(i, j, k)];
 
-            for (Particule* pi_ptr : ci.getParticuleList()) {
-                Particule& pi = *pi_ptr;
-                double distance_pi_centre_cj = (pi.getPosition() - cj->centreCellule()).norm();
-                if (distance_pi_centre_cj > r_cut + sqrt(dimension)*r_cut/2)
-                    continue; // on ignore cette cellule voisine, elle est trop loin
-            for (Particule* pj_ptr : cj->getParticuleList()) {
-                Particule& pj = *pj_ptr;
-                if (&pi == &pj) continue;
+        // Interactions intra-cellule
+        const auto& parts = ci.getParticuleList();
+        for (size_t a = 0; a < parts.size(); ++a) {
+            for (size_t b = a + 1; b < parts.size(); ++b) {
+                Particule& pi = *parts[a];
+                Particule& pj = *parts[b];
 
-                Vector rij = pi.getPosition() - pj.getPosition();
+                Vector rij  = pi.getPosition() - pj.getPosition();
                 double dist = rij.norm();
-                if (dist == 0.0) continue;
+                if (dist == 0.0 || dist > r_cut) continue;
 
-                double s_r6  = pow(sigma / dist, 6);
+                double r2inv = 1.0 / (dist * dist);
+                double s_r6 = r2inv * r2inv * r2inv * (sigma * sigma * sigma * sigma * sigma * sigma);
                 double coeff = (24.0 * epsilon / (dist * dist))
-                               * s_r6 * (1.0 - 2.0 * s_r6);
-                Vector fij   = rij * (-coeff);  // F sur i due à j
+                             * s_r6 * (1.0 - 2.0 * s_r6);
+                Vector fij   = rij * (-coeff);
 
                 pi.setForce(pi.getForce() + fij);
                 pj.setForce(pj.getForce() - fij);
+
             }
+        }
+
+
+        // Interactions avec les cellules voisines
+        for (Cellule* cj : ci.getVoisines()) {
+            if (cj == &ci) continue;
+            if (cj < &ci) continue; // évite double comptage
+
+            for (Particule* pi_ptr : ci.getParticuleList()) {
+                Particule& pi = *pi_ptr;
+
+                // Distance entre la particule pi et le centre de la cellule voisine cj
+                double d = (pi.getPosition() - cj->centreCellule()).norm();
+                if (d > r_cut * std::sqrt(2.0) ) continue; // cj trop loin pour pi → on ignore
+
+                for (Particule* pj_ptr : cj->getParticuleList()) {
+                    Particule& pj = *pj_ptr;
+                    if (&pi == &pj) continue;
+
+                    Vector rij = pi.getPosition() - pj.getPosition();
+                    double dist = rij.norm();
+                    if (dist == 0.0 || dist > r_cut) continue;
+                    double s_r6  = pow(sigma / dist, 6);
+                    double coeff = (24.0 * epsilon / (dist * dist))
+                                 * s_r6 * (1.0 - 2.0 * s_r6);
+                    Vector fij   = rij * (-coeff);
+
+                    pi.setForce(pi.getForce() + fij);
+                    pj.setForce(pj.getForce() - fij);
+                }
             }
         }
     }
 }
-    
 
-void Univers_tp4::ajouterParticule(const Particule& p) {
-    particuleList.push_back(p);
-}
 
-void Univers_tp4::mettreAJourCellules() {
+void UniversLJ::mettreAJourCellules() {
     for (Cellule& c : celluleList)
         c.viderParticules();
 
@@ -170,7 +205,7 @@ void Univers_tp4::mettreAJourCellules() {
     }
 }
 
-void Univers_tp4::avancerParticules(double tEnd, double dt) {
+void UniversLJ::avancerParticules(double tEnd, double dt) {
     if (particuleList.empty()) return;
 
     std::ofstream csvFile("output_tp4.csv");
@@ -179,8 +214,9 @@ void Univers_tp4::avancerParticules(double tEnd, double dt) {
         csvFile << " x" << i << " y" << i;
     csvFile << "\n";
 
-    // Initialisation : calcul des forces au t=0
-    calculerForces(epsilon, sigma);
+    // Forces initiales à t=0
+    calculerForces();
+
     std::vector<Vector> forces(particuleList.size(), Vector(0, 0, 0));
     for (size_t i = 0; i < particuleList.size(); i++)
         forces[i] = particuleList[i].getForce();
@@ -194,7 +230,6 @@ void Univers_tp4::avancerParticules(double tEnd, double dt) {
         step++;
         std::vector<Vector> forces_old = forces;
 
-        // Mise à jour des positions (Störmer-Verlet)
         for (size_t i = 0; i < particuleList.size(); ++i) {
             Particule& p = particuleList[i];
             Vector accel  = forces[i] * (1.0 / p.getMasse());
@@ -202,11 +237,9 @@ void Univers_tp4::avancerParticules(double tEnd, double dt) {
             p.setPosition(newPos);
         }
 
-        // Réassigner les particules aux cellules
         mettreAJourCellules();
 
-        // Nouveaux forces
-        calculerForces(epsilon, sigma);
+        calculerForces();
         for (size_t i = 0; i < particuleList.size(); i++)
             forces[i] = particuleList[i].getForce();
 
@@ -221,10 +254,19 @@ void Univers_tp4::avancerParticules(double tEnd, double dt) {
         if (step % save_every == 0) {
             saveCSV(particuleList, csvFile, t);
             std::cout << "t = " << t << " / " << tEnd
-                      << "  (" << (double)(100*t/tEnd) << "%)\n"
-                      << std::flush;
-        }
+                      << "  (" << (100.0*t/tEnd) << "%)\n" << std::flush;
 
-        saveCSV(particuleList, csvFile, t);
+            double f_max = 0.0;
+            double pos_max = 0.0;
+            for (const auto& p : particuleList) {
+                double f_norm = p.getForce().norm();
+                if (f_norm > f_max) f_max = f_norm;
+                double pos_norm = p.getPosition().norm();
+                if (pos_norm > pos_max) pos_max = pos_norm;
+            }
+            std::cout << "t = " << t << "  fmax=" << f_max
+                      << "  posmax=" << pos_max << "\n" << std::flush;
+
+        }
     }
 }
