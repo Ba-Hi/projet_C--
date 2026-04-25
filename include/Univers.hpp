@@ -43,7 +43,7 @@ public:
      * @param tEnd Temps final de la simulation
      * @param dt Pas de temps
      */
-    void avancerParticules(double tEnd, double dt);
+    virtual void avancerParticules(double tEnd, double dt);
 
     /**
      * @brief Getter de la dimension

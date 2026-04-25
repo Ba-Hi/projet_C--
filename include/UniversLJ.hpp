@@ -77,7 +77,7 @@ public:
      * @param tEnd Temps final de la simulation
      * @param dt Pas de temps
      */
-    void avancerParticules(double tEnd, double dt);
+    void avancerParticules(double tEnd, double dt) override;
 
 private:
     /**

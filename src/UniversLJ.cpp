@@ -96,29 +96,14 @@ size_t UniversLJ::getNbCellules() const {
 }
 
 std::vector<Vector> UniversLJ::calculerForces() {
-    size_t n = particuleList.size();
-    std::vector<Vector> forces(n, Vector(0.0, 0.0, 0.0));
-
-    for (size_t i = 0; i < n; ++i) {
-        for (size_t j = i+1; j < n; ++j) {
-            const Vector& pi = particuleList[i].getPosition();
-            const Vector& pj = particuleList[j].getPosition();
-            Vector diff = pj - pi;
-            double dist = diff.norm();
-            if (dist == 0.0 || dist > r_cut) continue;
-
-            double r2inv = 1.0 / (dist * dist);
-            double s_r6 = r2inv * r2inv * r2inv * (sigma * sigma * sigma * sigma * sigma * sigma);
-            double coeff = (24.0 * epsilon / (dist * dist))
-                         * s_r6 * (1.0 - 2.0 * s_r6);
-            Vector forceIJ = diff * (-coeff);
-            forces[i] = forces[i] + forceIJ;
-            forces[j] = forces[j] - forceIJ;
-        }
+    calculerForces(epsilon, sigma);
+    std::vector<Vector> forces;
+    forces.reserve(particuleList.size());
+    for (const auto& p : particuleList) {
+        forces.push_back(p.getForce());
     }
     return forces;
 }
-
 
 void UniversLJ::calculerForces(double epsilon, double sigma) {
     for (Particule& p : particuleList)
