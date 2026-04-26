@@ -72,12 +72,6 @@ public:
      */
     size_t getNbCellules() const;
 
-    /**
-     * @brief Fait évoluer les particules dans le temps avec l'algorithme Störmer-Verlet (version spécialisée pour LJ)
-     * @param tEnd Temps final de la simulation
-     * @param dt Pas de temps
-     */
-    void avancerParticules(double tEnd, double dt) override;
 
 private:
     /**
@@ -95,6 +89,21 @@ private:
      * @return Indice 1D
      */
     int indice1D(int i, int j, int k);
+
+public:
+    /**
+     * @brief Calcule l'énergie cinétique du système
+     * @return Énergie cinétique totale
+     */
+    double energieCinetique() const;
+
+    /**
+     * @brief Calcule l'énergie potentielle du système
+     * @return Énergie potentielle totale
+     */
+    double energiePotentielle() const;
 };
+
+
 
 #endif

@@ -106,6 +106,11 @@ std::vector<Vector> UniversLJ::calculerForces() {
 }
 
 void UniversLJ::calculerForces(double epsilon, double sigma) {
+    const double r_cut2 = r_cut * r_cut;
+    const double sigma2 = sigma * sigma;
+    const double sigma6 = sigma2 * sigma2 * sigma2;
+    const double min_r2   = 0.05 * sigma2; // évite la singularité pour des contacts très proches
+
     for (Particule& p : particuleList)
         p.setForce(Vector(0.0, 0.0, 0.0));
 
@@ -123,13 +128,13 @@ void UniversLJ::calculerForces(double epsilon, double sigma) {
                 Particule& pj = *parts[b];
 
                 Vector rij  = pi.getPosition() - pj.getPosition();
-                double dist = rij.norm();
-                if (dist == 0.0 || dist > r_cut) continue;
+                double dist2 = rij.norm2();
+                if (dist2 == 0.0 || dist2 > r_cut2) continue;
+                if (dist2 < min_r2) dist2 = min_r2;
 
-                double r2inv = 1.0 / (dist * dist);
-                double s_r6 = r2inv * r2inv * r2inv * (sigma * sigma * sigma * sigma * sigma * sigma);
-                double coeff = (24.0 * epsilon / (dist * dist))
-                             * s_r6 * (1.0 - 2.0 * s_r6);
+                double invDist2 = 1.0 / dist2;
+                double s_r6 = sigma6 * invDist2 * invDist2 * invDist2;
+                double coeff = (24.0 * epsilon * invDist2) * s_r6 * (1.0 - 2.0 * s_r6);
                 Vector fij   = rij * (-coeff);
 
                 pi.setForce(pi.getForce() + fij);
@@ -149,18 +154,21 @@ void UniversLJ::calculerForces(double epsilon, double sigma) {
 
                 // Distance entre la particule pi et le centre de la cellule voisine cj
                 double d = (pi.getPosition() - cj->centreCellule()).norm();
-                if (d > r_cut * std::sqrt(2.0) ) continue; // cj trop loin pour pi → on ignore
+                
+                if (d > r_cut * (1.0 + std::sqrt(2.0) / 2.0)) continue;
 
                 for (Particule* pj_ptr : cj->getParticuleList()) {
                     Particule& pj = *pj_ptr;
                     if (&pi == &pj) continue;
 
                     Vector rij = pi.getPosition() - pj.getPosition();
-                    double dist = rij.norm();
-                    if (dist == 0.0 || dist > r_cut) continue;
-                    double s_r6  = pow(sigma / dist, 6);
-                    double coeff = (24.0 * epsilon / (dist * dist))
-                                 * s_r6 * (1.0 - 2.0 * s_r6);
+                    double dist2 = rij.norm2();
+                    if (dist2 == 0.0 || dist2 > r_cut2) continue;
+                    if (dist2 < min_r2) dist2 = min_r2;
+
+                    double invDist2 = 1.0 / dist2;
+                    double s_r6  = sigma6 * invDist2 * invDist2 * invDist2;
+                    double coeff = (24.0 * epsilon * invDist2) * s_r6 * (1.0 - 2.0 * s_r6);
                     Vector fij   = rij * (-coeff);
 
                     pi.setForce(pi.getForce() + fij);
@@ -190,68 +198,24 @@ void UniversLJ::mettreAJourCellules() {
     }
 }
 
-void UniversLJ::avancerParticules(double tEnd, double dt) {
-    if (particuleList.empty()) return;
 
-    std::ofstream csvFile("output_tp4.csv");
-    csvFile << "t";
-    for (size_t i = 0; i < particuleList.size(); ++i)
-        csvFile << " x" << i << " y" << i;
-    csvFile << "\n";
+double UniversLJ::energieCinetique() const {
+    double ec = 0.0;
+    for (const auto& p : particuleList)
+        ec += 0.5 * p.getMasse() * p.getVitesse().norm2();
+    return ec;
+}
 
-    // Forces initiales à t=0
-    calculerForces();
-
-    std::vector<Vector> forces(particuleList.size(), Vector(0, 0, 0));
-    for (size_t i = 0; i < particuleList.size(); i++)
-        forces[i] = particuleList[i].getForce();
-
-    double t = 0.0;
-    int step = 0;
-    const int save_every = 200;
-
-    while (t < tEnd) {
-        t += dt;
-        step++;
-        std::vector<Vector> forces_old = forces;
-
-        for (size_t i = 0; i < particuleList.size(); ++i) {
-            Particule& p = particuleList[i];
-            Vector accel  = forces[i] * (1.0 / p.getMasse());
-            Vector newPos = p.getPosition() + p.getVitesse()*dt + accel*(0.5*dt*dt);
-            p.setPosition(newPos);
-        }
-
-        mettreAJourCellules();
-
-        calculerForces();
-        for (size_t i = 0; i < particuleList.size(); i++)
-            forces[i] = particuleList[i].getForce();
-
-        // Mise à jour des vitesses
-        for (size_t i = 0; i < particuleList.size(); ++i) {
-            Particule& p = particuleList[i];
-            Vector newVel = p.getVitesse()
-                          + (forces[i] + forces_old[i]) * (0.5*dt / p.getMasse());
-            p.setVitesse(newVel);
-        }
-
-        if (step % save_every == 0) {
-            saveCSV(particuleList, csvFile, t);
-            std::cout << "t = " << t << " / " << tEnd
-                      << "  (" << (100.0*t/tEnd) << "%)\n" << std::flush;
-
-            double f_max = 0.0;
-            double pos_max = 0.0;
-            for (const auto& p : particuleList) {
-                double f_norm = p.getForce().norm();
-                if (f_norm > f_max) f_max = f_norm;
-                double pos_norm = p.getPosition().norm();
-                if (pos_norm > pos_max) pos_max = pos_norm;
-            }
-            std::cout << "t = " << t << "  fmax=" << f_max
-                      << "  posmax=" << pos_max << "\n" << std::flush;
-
+double UniversLJ::energiePotentielle() const {
+    double ep = 0.0;
+    for (size_t i = 0; i < particuleList.size(); ++i) {
+        for (size_t j = i+1; j < particuleList.size(); ++j) {
+            double dist = (particuleList[i].getPosition()
+                         - particuleList[j].getPosition()).norm();
+            if (dist == 0.0 || dist > r_cut) continue;
+            double s_r6 = pow(sigma / dist, 6);
+            ep += 4.0 * epsilon * s_r6 * (s_r6 - 1.0);
         }
     }
+    return ep;
 }

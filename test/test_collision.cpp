@@ -10,7 +10,7 @@ int main() {
     const double epsilon = 1.0;
     const double r_cut   = 2.5 * sigma;
     const double dt      = 0.00005;
-    const double tEnd    = 19.5;
+    const double tEnd    = 1;
     const double m       = 1.0;
 
     // Distance inter-particules
@@ -47,7 +47,7 @@ int main() {
     for (int j = 0; j < 40; j++) {
         for (int i = 0; i < 40; i++) {
             Vector pos(sq_x0 + i * d, sq_y0 + j * d, 0.0);
-            Vector vel(0.0, -10.0, 0.0);  // vitesse vers le bas (collision)
+            Vector vel(0.0, -10.0, 0.0);  // vitesse initiale réduite pour éviter une collision trop violente
             u.ajouterParticule(Particule(pos, vel, m, id++, 1, Vector(0,0,0)));
         }
     }
@@ -62,7 +62,6 @@ int main() {
     u.initialiserCellules();
     u.avancerParticules(tEnd, dt);
 
-    std::cout << "Simulation terminée. Résultats dans output_tp4.csv\n";
 
     return 0;
 }

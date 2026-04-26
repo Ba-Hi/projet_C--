@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
-data = np.loadtxt("collision_simple.csv", skiprows=1)
+data = np.loadtxt("output.csv", skiprows=1)
 # colonnes : t x0 y0 x1 y1 x2 y2 x3 y3
 
 t  = data[:, 0]

@@ -5,6 +5,7 @@
 #include "Particule.hpp"
 #include "Vector.hpp"
 
+
 /**
  * @brief Classe abstraite représentant un univers contenant un ensemble de particules
  * 
@@ -43,7 +44,7 @@ public:
      * @param tEnd Temps final de la simulation
      * @param dt Pas de temps
      */
-    virtual void avancerParticules(double tEnd, double dt);
+    void avancerParticules(double tEnd, double dt);
 
     /**
      * @brief Getter de la dimension

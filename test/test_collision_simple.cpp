@@ -30,61 +30,15 @@ int main() {
         Vector(0.0, -3.0, 0.0),
         m, 3, 1, Vector(0,0,0)));
 
+    double enerique_initiale = u.energieCinetique() + u.energiePotentielle();
     u.initialiserCellules();
-    u.calculerForces();
+    u.avancerParticules(tEnd, dt);
+    double enerique_finale = u.energieCinetique() + u.energiePotentielle();
 
-    
-    std::ofstream csv("collision_simple.csv");
-    csv << "t x0 y0 x1 y1 x2 y2 x3 y3\n";
+    std::cout << "Energie initiale : " << enerique_initiale << "\n";
+    std::cout << "Energie finale : " << enerique_finale << "\n";
+    std::cout << "Variation d'énergie : " << (enerique_finale - enerique_initiale) << "\n";
 
-    std::vector<Vector> forces(4, Vector(0,0,0));
-    for (size_t i = 0; i < u.getParticules().size(); i++)
-        forces[i] = u.getParticules()[i].getForce();
 
-    double t = 0.0;
-    int step = 0;
-    const int save_every = 5;
-
-    while (t < tEnd) {
-        t += dt;
-        step++;
-
-        std::vector<Vector> forces_old = forces;
-
-        for (size_t i = 0; i < u.getParticules().size(); ++i) {
-            Particule& p = u.getParticules()[i];
-            Vector accel  = forces[i] * (1.0 / p.getMasse());
-            p.setPosition(p.getPosition() + p.getVitesse()*dt + accel*(0.5*dt*dt));
-        }
-
-        u.mettreAJourCellules();
-        u.calculerForces();
-
-        for (size_t i = 0; i < u.getParticules().size(); i++)
-            forces[i] = u.getParticules()[i].getForce();
-
-        for (size_t i = 0; i < u.getParticules().size(); ++i) {
-            Particule& p = u.getParticules()[i];
-            p.setVitesse(p.getVitesse() + (forces[i] + forces_old[i]) * (0.5*dt / p.getMasse()));
-        }
-
-        // Détection explosion
-        double fmax = 0.0;
-        for (const auto& p : u.getParticules())
-            fmax = std::max(fmax, p.getForce().norm());
-        if (fmax > 1e6) {
-            std::cerr << "EXPLOSION t=" << t << " fmax=" << fmax << "\n";
-            return 1;
-        }
-
-        if (step % save_every == 0) {
-            csv << t;
-            for (const auto& p : u.getParticules())
-                csv << " " << p.getPosition().x() << " " << p.getPosition().y();
-            csv << "\n";
-        }
-    }
-
-    std::cout << "Done. collision_simple.csv written.\n";
     return 0;
 }

@@ -4,6 +4,7 @@ UniversGravitationnel::UniversGravitationnel(int dim, int reserveCount)
     : Univers(dim, reserveCount) {}
 
 std::vector<Vector> UniversGravitationnel::calculerForces() {
+    
     size_t n = particuleList.size();
     std::vector<Vector> forces(n, Vector(0.0, 0.0, 0.0));
 
