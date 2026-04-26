@@ -2,6 +2,7 @@
 #include <iostream>
 #include <filesystem>
 #include "ExportVTK.hpp"
+#include "ExportCsv.hpp"
 
 Univers::Univers(int dim, int reserveCount)
     : dimension(dim), n_particules(0) {
@@ -48,6 +49,15 @@ void Univers::ajouterParticule(const Particule& p) {
 void Univers::avancerParticules(double tEnd, double dt) {
     if (particuleList.empty()) return;
 
+    // save csv
+    std::ofstream csvFile("../output.csv");
+    // header: t x0 y0 x1 y1 ...
+    csvFile << "t";
+    for (size_t i = 0; i < particuleList.size(); ++i)
+        csvFile << " x" << i << " y" << i;
+    csvFile << "\n";
+    
+
     std::vector<Vector> forces = calculerForces();
     
 
@@ -80,6 +90,8 @@ void Univers::avancerParticules(double tEnd, double dt) {
             p.setVitesse(p.getVitesse()
                 + (forces[i] + forces_old[i]) * (0.5*dt / p.getMasse()));
         }
+
+        saveCSV(particuleList, csvFile, t);
 
         if (step % save_every == 0) {
             saveVTK(particuleList, step, t);
@@ -114,6 +126,7 @@ void Univers::avancerParticules(double tEnd, double dt) {
 
 
         }
+
     }
 
     savePVD(vtk_steps, vtk_times); 

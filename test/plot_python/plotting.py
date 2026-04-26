@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-data = np.loadtxt("../build/output.csv", skiprows=1)
+data = np.loadtxt("../../output.csv", skiprows=1)
 
 # columns: t x0 y0 x1 y1 x2 y2 x3 y3
 t = data[:, 0]
