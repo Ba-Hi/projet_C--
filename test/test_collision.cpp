@@ -9,7 +9,7 @@ int main() {
     const double sigma   = 1.0;
     const double epsilon = 1.0;
     const double r_cut   = 2.5 * sigma;
-    const double dt      = 0.00005;
+    const double dt      = 0.0005;
     const double tEnd    = 1;
     const double m       = 1.0;
 

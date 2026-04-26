@@ -49,10 +49,12 @@ void Univers::avancerParticules(double tEnd, double dt) {
     if (particuleList.empty()) return;
 
     std::vector<Vector> forces = calculerForces();
+    
 
     double t = 0.0;
     int step = 0;
     const int save_every = 10;
+
 
     std::vector<int>    vtk_steps;
     std::vector<double> vtk_times;
@@ -60,6 +62,8 @@ void Univers::avancerParticules(double tEnd, double dt) {
     while (t < tEnd) {
         t += dt;
         step++;
+
+        
         std::vector<Vector> forces_old = forces;
 
         for (size_t i = 0; i < particuleList.size(); ++i) {
@@ -86,18 +90,29 @@ void Univers::avancerParticules(double tEnd, double dt) {
             // std::cout << "t = " << t << " / " << tEnd
             //           << "  (" << pct << "%)\n" << std::flush;
 
-            double fmax = 0.0, vmax = 0.0;
-            for (const auto& p : particuleList) {
-                fmax = std::max(fmax, p.getForce().norm());
-                vmax = std::max(vmax, p.getVitesse().norm());
-            }
-            // std::cout << "  fmax=" << fmax << "  vmax=" << vmax << "\n";
+            // double fmax = 0.0, vmax = 0.0;
+            // for (const auto& p : particuleList) {
+            //     fmax = std::max(fmax, p.getForce().norm());
+            //     vmax = std::max(vmax, p.getVitesse().norm());
+            // }
+            // // std::cout << "  fmax=" << fmax << "  vmax=" << vmax << "\n";
 
-            if (fmax > 1e6) {
-                std::cerr << "EXPLOSION à t=" << t << "\n";
-                savePVD(vtk_steps, vtk_times);
-                return;
-            }
+            // if (fmax > 1e6) {
+            //     std::cerr << "EXPLOSION à t=" << t << "\n";
+            //     savePVD(vtk_steps, vtk_times);
+            //     return;
+            // }
+
+
+            // double f_rect = 0.0, f_carre = 0.0;
+            // for (const auto& p : particuleList) {
+            //     if (p.getType() == 0) f_rect  = std::max(f_rect,  p.getForce().norm());
+            //     if (p.getType() == 1) f_carre = std::max(f_carre, p.getForce().norm());
+            // }
+            // std::cout << "fmax rectangle=" << f_rect 
+            //         << "  fmax carre=" << f_carre << "\n";
+
+
         }
     }
 
