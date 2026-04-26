@@ -8,7 +8,7 @@ set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg")
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
-# ── Fetch gtest ───────────────────────────────────────────────
+# Fetch googletest
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -17,8 +17,22 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 enable_testing()
-# ─────────────────────────────────────────────────────────────
+
 
 add_subdirectory(src)
 add_subdirectory(test)
+
+
+# Documentation Doxygen
+find_package(Doxygen)
+if(DOXYGEN_FOUND)
+    add_custom_target(doc
+        COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_SOURCE_DIR}/Doxyfile
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+        COMMENT "Génération de la documentation Doxygen"
+        VERBATIM
+    )
+else()
+    message(WARNING "Doxygen non trouvé - la cible 'doc' ne sera pas disponible.")
+endif()
 
