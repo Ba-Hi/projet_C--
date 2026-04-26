@@ -15,6 +15,8 @@ UniversLJ::UniversLJ(const int& dimension, const Vector& l_d, const double& r_cu
             nx((int)(l_d.x() / r_cut)),
             ny((int)(l_d.y() / r_cut)),
             nz(dimension == 3 ? (int)(l_d.z() / r_cut) : 1),
+            conditionX(Univers::ConditionLimite::REFLEXION),
+            conditionY(Univers::ConditionLimite::REFLEXION),
             celluleList(){
     if (dimension > 3 || dimension < 1) {
         throw std::invalid_argument("La dimension est soit 1D, 2D, ou 3D.");
@@ -31,6 +33,8 @@ UniversLJ::UniversLJ(const int& dimension, const Vector& l_d, const double& r_cu
             nx((int)(l_d.x() / r_cut)),
             ny((int)(l_d.y() / r_cut)),
             nz(dimension == 3 ? (int)(l_d.z() / r_cut) : 1),
+            conditionX(Univers::ConditionLimite::REFLEXION),
+            conditionY(Univers::ConditionLimite::REFLEXION),
             celluleList(){
     if (dimension > 3 || dimension < 1) {
         throw std::invalid_argument("La dimension est soit 1D, 2D, ou 3D.");
@@ -180,7 +184,14 @@ void UniversLJ::calculerForces(double epsilon, double sigma) {
 }
 
 
+void UniversLJ::setConditionsLimites(Univers::ConditionLimite cx, Univers::ConditionLimite cy) {
+    conditionX = cx;
+    conditionY = cy;
+}
+
 void UniversLJ::mettreAJourCellules() {
+    appliquerConditionsLimites(conditionX, conditionY);
+
     for (Cellule& c : celluleList)
         c.viderParticules();
 
@@ -195,6 +206,67 @@ void UniversLJ::mettreAJourCellules() {
         k = std::max(0, std::min(k, nz - 1));
 
         celluleList[indice1D(i, j, k)].ajouterParticule(&p);
+    }
+}
+
+void UniversLJ::appliquerConditionsLimites(Univers::ConditionLimite cx, Univers::ConditionLimite cy) {
+    auto appliquerAxe = [&](double &coord, double limit, ConditionLimite condition, double &velocity) {
+        bool absorb = false;
+
+        if (condition == Univers::ConditionLimite::REFLEXION) {
+            while (coord < 0.0 || coord >= limit) {
+                if (coord < 0.0) {
+                    coord = -coord;
+                    velocity = -velocity;
+                } else {
+                    coord = 2.0 * limit - coord;
+                    velocity = -velocity;
+                }
+            }
+        } else if (condition == Univers::ConditionLimite::PERIODIQUE) {
+            if (limit > 0.0) {
+                coord = std::fmod(coord, limit);
+                if (coord < 0.0) coord += limit;
+            }
+        } else if (condition == Univers::ConditionLimite::ABSORPTION) {
+            if (coord < 0.0 || coord >= limit) {
+                absorb = true;
+            }
+        }
+
+        return absorb;
+    };
+
+    std::vector<Particule> survivantes;
+    survivantes.reserve(particuleList.size());
+
+    for (Particule& p : particuleList) {
+        Vector pos = p.getPosition();
+        Vector vel = p.getVitesse();
+        bool absorb = false;
+
+        double x = pos.x();
+        double y = pos.y();
+        double z = pos.z();
+        double vx = vel.x();
+        double vy = vel.y();
+        double vz = vel.z();
+
+        absorb = appliquerAxe(x, l_d.x(), cx, vx) || appliquerAxe(y, l_d.y(), cy, vy);
+        if (dimension == 3) {
+            absorb = absorb || appliquerAxe(z, l_d.z(), cy, vz);
+        }
+
+        if (!absorb) {
+            p.setPosition(Vector(x, y, z));
+            p.setVitesse(Vector(vx, vy, vz));
+            survivantes.push_back(p);
+        }
+    }
+
+    if (cx == Univers::ConditionLimite::ABSORPTION || cy == Univers::ConditionLimite::ABSORPTION) {
+        particuleList = survivantes;
+        n_particules = particuleList.size();
     }
 }
 

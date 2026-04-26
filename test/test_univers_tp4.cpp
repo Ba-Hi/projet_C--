@@ -49,6 +49,44 @@ TEST(UniversTp4Test, MiseAJourApresDeplacement) {
     EXPECT_EQ(u.getCellule(1, 0, 0).getParticuleList().size(), 1);
 }
 
+TEST(UniversTp4Test, ConditionLimiteReflexion) {
+    UniversLJ u(2, Vector(10.0, 10.0, 0.0), 2.5, 1.0, 1.0);
+    u.setConditionsLimites(Univers::ConditionLimite::REFLEXION,
+                            Univers::ConditionLimite::REFLEXION);
+    u.ajouterParticule(Particule(Vector(-1.0, 5.0, 0.0), Vector(-2.0, 0.0, 0.0), 1.0, 0, 0, Vector(0,0,0)));
+    u.ajouterParticule(Particule(Vector(5.0, 11.0, 0.0), Vector(0.0, 2.0, 0.0), 1.0, 1, 0, Vector(0,0,0)));
+    u.initialiserCellules();
+
+    EXPECT_NEAR(u.getParticules()[0].getPosition().x(), 1.0, 1e-9);
+    EXPECT_GT(u.getParticules()[0].getVitesse().x(), 0.0);
+    EXPECT_NEAR(u.getParticules()[1].getPosition().y(), 9.0, 1e-9);
+    EXPECT_LT(u.getParticules()[1].getVitesse().y(), 0.0);
+}
+
+TEST(UniversTp4Test, ConditionLimiteAbsorption) {
+    UniversLJ u(2, Vector(10.0, 10.0, 0.0), 2.5, 1.0, 1.0);
+    u.setConditionsLimites(Univers::ConditionLimite::ABSORPTION,
+                            Univers::ConditionLimite::ABSORPTION);
+    u.ajouterParticule(Particule(Vector(1.0, 1.0, 0.0), Vector(0,0,0), 1.0, 0, 0, Vector(0,0,0)));
+    u.ajouterParticule(Particule(Vector(-1.0, 5.0, 0.0), Vector(0.0, 0.0, 0.0), 1.0, 1, 0, Vector(0,0,0)));
+    u.initialiserCellules();
+
+    EXPECT_EQ(u.getParticules().size(), 1);
+    EXPECT_NEAR(u.getParticules()[0].getPosition().x(), 1.0, 1e-9);
+}
+
+TEST(UniversTp4Test, ConditionLimitePeriodique) {
+    UniversLJ u(2, Vector(10.0, 10.0, 0.0), 2.5, 1.0, 1.1);
+    u.setConditionsLimites(Univers::ConditionLimite::PERIODIQUE,
+                            Univers::ConditionLimite::PERIODIQUE);
+    u.ajouterParticule(Particule(Vector(-1.0, 5.0, 0.0), Vector(0.0, 0.0, 0.0), 1.0, 0, 0, Vector(0,0,0)));
+    u.ajouterParticule(Particule(Vector(10.3, 7.0, 0.0), Vector(0.0, 0.0, 0.0), 1.0, 1, 0, Vector(0,0,0)));
+    u.initialiserCellules();
+
+    EXPECT_NEAR(u.getParticules()[0].getPosition().x(), 9.0, 1e-9);
+    EXPECT_NEAR(u.getParticules()[1].getPosition().x(), 0.3, 1e-9);
+}
+
 // ── Forces de Lennard-Jones ──────────────────────────────────
 
 TEST(UniversTp4Test, ForceNulleAuMinimum) {

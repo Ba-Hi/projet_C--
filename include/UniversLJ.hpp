@@ -20,6 +20,8 @@ private:
     double epsilon;
     double sigma;
     int nx, ny, nz;
+    Univers::ConditionLimite conditionX;
+    Univers::ConditionLimite conditionY;
     std::vector<Cellule> celluleList;
 
 public:
@@ -45,6 +47,11 @@ public:
      * @brief Initialise les cellules du domaine
      */
     void initialiserCellules();
+
+    /**
+     * @brief Définit les conditions aux limites en x et en y
+     */
+    void setConditionsLimites(Univers::ConditionLimite cx, Univers::ConditionLimite cy);
 
     /**
      * @brief Calcule les forces de Lennard-Jones en utilisant les cellules liées
@@ -80,6 +87,11 @@ private:
      * @param sigma Paramètre sigma
      */
     void calculerForces(double epsilon, double sigma);
+
+    /**
+     * @brief Applique les conditions aux limites actives aux particules
+     */
+    void appliquerConditionsLimites(Univers::ConditionLimite cx, Univers::ConditionLimite cy);
 
     /**
      * @brief Convertit les indices 3D en indice 1D pour l'accès au tableau

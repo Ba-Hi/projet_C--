@@ -21,6 +21,12 @@ protected:
     int n_particules; ///< Nombre de particules
 
 public:
+    enum class ConditionLimite {
+        REFLEXION,
+        ABSORPTION,
+        PERIODIQUE
+    };
+
     /**
      * @brief Constructeur de l'univers
      * @param dim Dimension de l'espace
